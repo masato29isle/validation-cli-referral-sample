@@ -1,0 +1,46 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Procedure-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Procedure_eCS",
+  "name": "JP_Procedure_eCS",
+  "status": "active",
+  "date": "2023-03-31",
+  "description": "Derived Profile from JP-Core",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.meta.lastUpdated",
+        "path": "Procedure.meta.lastUpdated",
+        "mustSupport": true
+      }
+    ]
+  }
+}

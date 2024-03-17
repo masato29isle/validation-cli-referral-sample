@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_ValueSet_eReferral_document_section",
+  "id": "jp-valueset-eReferral-document-section",
+  "description": "診療情報提供書セクション区分　ValueSet",
+  "url": "http://jpfhir.jp/fhir/eReferral/ValueSet/document-section",
+  "title": "診療情報提供書セクション区分コード　ValueSet",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/eReferral/CodeSystem/document-section"
+      }
+    ]
+  }
+}

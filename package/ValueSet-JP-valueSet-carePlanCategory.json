@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_valueSet_carePlanCategory",
+  "id": "JP-valueSet-carePlanCategory",
+  "title": "CarePlan カテゴリー",
+  "description": "CarePlan カテゴリー　hospital-plan または discharge-plan",
+  "url": "http://jpfhir.jp/fhir/CarePlan/ValueSet/category",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/CarePlan/CodeSystem/category"
+      }
+    ]
+  }
+}

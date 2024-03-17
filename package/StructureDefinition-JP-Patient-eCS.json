@@ -1,0 +1,338 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Patient-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Patient_eCS",
+  "name": "JP_Patient_eCS",
+  "title": "eCS:JP_Patient_eCS",
+  "status": "active",
+  "description": "eCS 診療情報・サマリー汎用 Patientリソース（患者情報）プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "loinc",
+      "uri": "http://loinc.org",
+      "name": "LOINC code for the element"
+    },
+    {
+      "identity": "ssmix2-adt00-pid-r4-jppatient",
+      "name": "SSMIX2ADT00PID  to JP_Patient",
+      "uri": "http://ssmix2"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.meta.versionId",
+        "path": "Patient.meta.versionId",
+        "short": "バージョン固有の識別子",
+        "definition": "バージョン固有の識別子"
+      },
+      {
+        "id": "Patient.meta.lastUpdated",
+        "path": "Patient.meta.lastUpdated",
+        "short": "最終更新日",
+        "definition": "この患者情報の内容がサーバ上で最後に格納または更新された日時、またはこのFHIRリソースが生成された日時",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.meta.source",
+        "path": "Patient.meta.source",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "SS-MIX2標準化ストレージの場合には、http://jpfhir.jp/ssmix2std/<MSH-21-1>/医療機関識別OID番号 を設定。<MSH-21-1>　SS-MIX2_1.20 などのバージョン番号。\r\n 電子カルテデータベースの場合には、適宜設定してよいが、最後のパートに医療機関番号11桁を設定すること。"
+          }
+        ]
+      },
+      {
+        "id": "Patient.meta.profile",
+        "path": "Patient.meta.profile",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "固定値:\"http://jpfhir.jp/fhir/core/StructureDefinition/JP_Patient\""
+          }
+        ]
+      },
+      {
+        "id": "Patient.identifier.system",
+        "path": "Patient.identifier.system",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "固定値:\"urn:oid:1.2.392.100495.20.3.51.医療機関識別OID番号\" 医療機関識別OID番号;患者IDの発行者である機関の医療機関コード（１０桁）の先頭に１をつけた11桁"
+          }
+        ]
+      },
+      {
+        "id": "Patient.identifier.value",
+        "path": "Patient.identifier.value",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "SS-MIX2値:<PID-3-1> (患者ID)"
+          }
+        ]
+      },
+      {
+        "id": "Patient.active",
+        "path": "Patient.active",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "true"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.name.extension",
+        "path": "Patient.name.extension"
+      },
+      {
+        "id": "Patient.name.extension.url",
+        "path": "Patient.name.extension.url",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation"
+          },
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.extension.value[x]",
+        "path": "Patient.name.extension.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Patient.name.extension.value[x]:valueCode",
+        "path": "Patient.name.extension.value[x]",
+        "sliceName": "valueCode",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#IDE"
+          },
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#SYL"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.use",
+        "path": "Patient.name.use",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#official"
+          },
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#official"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.text",
+        "path": "Patient.name.text",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "name[#IDE] PID-5[*]-1+PID-5[*]-2  (PID-5-8='I' ideographic typeのデータから取得)"
+          },
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "name[#SYL] PID-5[*]-1+PID-5[*]-2  (PID-5-8='P' phoneric typeのデータから取得)"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.family",
+        "path": "Patient.name.family",
+        "min": 1,
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "name[#IDE] PID-5[*]-1 (PID-5-8='I' ideographic typeのデータから取得)"
+          },
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "name[#SYL] (PID-5-8='P' phoneric typeのデータから取得)"
+          }
+        ]
+      },
+      {
+        "id": "Patient.name.given",
+        "path": "Patient.name.given",
+        "min": 1,
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "name[#IDE] PID-5[*]-2 (PID-5-8='I' phonideographiceric typeのデータから取得)"
+          },
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "name[#SYL] (PID-5-8='P' phoneric typeのデータから取得)"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.system",
+        "path": "Patient.telecom.system",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#phone (PID-13-3='PH'に対応))"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.value",
+        "path": "Patient.telecom.value",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "PID-13-12(.use=#homeの場合(PID-13-2='PRN' and PID-13-3='PH'))、PID-14-12(.use=#workの場合(PID-13-2='WPN' and PID-13-3='PH'))"
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom.use",
+        "path": "Patient.telecom.use",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#home,#work"
+          }
+        ]
+      },
+      {
+        "id": "Patient.gender",
+        "path": "Patient.gender",
+        "min": 1,
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "PID-8=F->female, M->male, U->unknown, O->other"
+          }
+        ]
+      },
+      {
+        "id": "Patient.birthDate",
+        "path": "Patient.birthDate",
+        "min": 1,
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "PID-7(YYYYMMDD形式)->YYYY-MM-DD形式"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address",
+        "path": "Patient.address",
+        "definition": "患者の住所。必須。",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.address.use",
+        "path": "Patient.address.use",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "#usual"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.text",
+        "path": "Patient.address.text",
+        "min": 1,
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "PID-11-8  例：神奈川県横浜市港区１－２－３"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.postalCode",
+        "path": "Patient.address.postalCode",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "PID-11-5  例：123-4567"
+          }
+        ]
+      },
+      {
+        "id": "Patient.address.country",
+        "path": "Patient.address.country",
+        "mapping": [
+          {
+            "identity": "ssmix2-adt00-pid-r4-jppatient",
+            "map": "JP"
+          }
+        ]
+      }
+    ]
+  }
+}

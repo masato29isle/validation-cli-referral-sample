@@ -1,0 +1,220 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Condition-CLINS-eCS",
+  "url": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Condition_eCS",
+  "name": "JP_Condition_CLINS_eCS",
+  "title": "CLINS電子カルテ情報共有サービス用:JP_Condition_CLINS_eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "CLINS 電子カルテ共有サービス用  Conditionリソース（傷病名情報）プロファイル 。JP_Condition_eCSからの派生プロファイル。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "sct-concept",
+      "uri": "http://snomed.info/conceptdomain",
+      "name": "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "sct-attr",
+      "uri": "http://snomed.org/attributebinding",
+      "name": "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Condition_eCS",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition",
+        "path": "Condition",
+        "comment": "このプロファイルは、電子カルテ情報共有サービスに送信するために適合したプロファイルである。"
+      },
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "short": "準拠しているプロファイルとして次のURLを指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Condition_eCS",
+        "definition": "準拠しているプロファイルとして次のURLを指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Condition_eCS",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Condition.meta.tag",
+        "path": "Condition.meta.tag",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.meta.tag:lts",
+        "path": "Condition.meta.tag",
+        "sliceName": "lts",
+        "short": "電子カルテ情報共有サービスで長期保存フラグの設定する場合に使用する。",
+        "definition": "電子カルテ情報共有サービスで長期保存フラグの設定する場合に使用する。",
+        "min": 0,
+        "max": "1",
+        "patternCoding": {
+          "code": "LTS",
+          "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:lts.system",
+        "path": "Condition.meta.tag.system",
+        "short": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "definition": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:lts.code",
+        "path": "Condition.meta.tag.code",
+        "short": "長期保存フラグ　固定値 LTSを設定する。",
+        "definition": "長期保存フラグ　固定値 LTSを設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:uninformed",
+        "path": "Condition.meta.tag",
+        "sliceName": "uninformed",
+        "short": "６情報作成において未告知フラグを設定する場合に使用（本リソース種別で使用することが許可されているか、あるいは設定した情報が利用されるかどうかについては、電子カルテ情報共有サービスの運用仕様によって確認することが必要）。",
+        "definition": "６情報作成において未告知フラグを設定する場合に使用（本リソース種別で使用することが許可されているか、あるいは設定した情報が利用されるかどうかについては、電子カルテ情報共有サービスの運用仕様によって確認することが必要）。",
+        "min": 0,
+        "max": "1",
+        "patternCoding": {
+          "code": "UNINFORMED",
+          "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:uninformed.system",
+        "path": "Condition.meta.tag.system",
+        "short": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "definition": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:uninformed.code",
+        "path": "Condition.meta.tag.code",
+        "short": "未告知フラグ　固定値 UNINFORMEDを設定する。",
+        "definition": "未告知フラグ　固定値 UNINFORMEDを設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:undelivered",
+        "path": "Condition.meta.tag",
+        "sliceName": "undelivered",
+        "short": "６情報作成において未提供フラグを設定する場合に使用（本リソース種別で使用することが許可されているか、あるいは設定した情報が利用されるかどうかについては、電子カルテ情報共有サービスの運用仕様によって確認することが必要）。",
+        "definition": "６情報作成において未提供フラグを設定する場合に使用（本リソース種別で使用することが許可されているか、あるいは設定した情報が利用されるかどうかについては、電子カルテ情報共有サービスの運用仕様によって確認することが必要）。",
+        "min": 0,
+        "max": "1",
+        "patternCoding": {
+          "code": "UNDELIVERED",
+          "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:undelivered.system",
+        "path": "Condition.meta.tag.system",
+        "short": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "definition": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag:undelivered.code",
+        "path": "Condition.meta.tag.code",
+        "short": "未提供フラグ　固定値 UNDELIVEREDを設定する。",
+        "definition": "未提供フラグ　固定値 UNDELIVEREDを設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.extension",
+        "path": "Condition.extension",
+        "min": 1
+      },
+      {
+        "id": "Condition.extension:eCS_InstitutionNumber",
+        "path": "Condition.extension",
+        "sliceName": "eCS_InstitutionNumber",
+        "short": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。電子カルテ情報サービスでは、この拡張による記述は必須。本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "definition": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。電子カルテ情報サービスでは、この拡張による記述は必須。本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "min": 1
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "comment": "電子カルテ共有サービスでは、別途BundleリソースでPatientリソースが送信されているので、その被保険者個人識別子を明示することにより患者を参照する。"
+      },
+      {
+        "id": "Condition.subject.identifier.system",
+        "path": "Condition.subject.identifier.system",
+        "fixedUri": "http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID"
+      },
+      {
+        "id": "Condition.onset[x]",
+        "path": "Condition.onset[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "definition": "患者にこの傷病が出現した時期、あるいはなんらかのエビデンスによりこの傷病が患者にあると確認できた時期を記述する。電子カルテシステムの病名開始日をdateTime型で記述するのが一般的な方法である。電子カルテ情報サービスでは、病名開始日をdateTime型で記述するため、onsetDateTime要素を使用する。",
+        "min": 1
+      },
+      {
+        "id": "Condition.onset[x]:onsetDateTime",
+        "path": "Condition.onset[x]",
+        "sliceName": "onsetDateTime",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Binary",
+  "url": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Binary",
+  "name": "JP_Binary",
+  "status": "active",
+  "date": "2023-03-31",
+  "description": "Derived Profile from JP-Core",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Binary",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Binary",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Binary.meta.lastUpdated",
+        "path": "Binary.meta.lastUpdated",
+        "mustSupport": true
+      }
+    ]
+  }
+}

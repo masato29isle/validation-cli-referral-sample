@@ -1,0 +1,75 @@
+{
+  "resourceType": "Organization",
+  "id": "referralFromOrganizationExample01",
+  "meta": {
+    "lastUpdated": "2021-11-26T10:00:00+09:00",
+    "profile": [
+      "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Organization_eCS"
+    ]
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_PrefectureNo",
+      "valueCoding": {
+        "system": "urn:oid:1.2.392.100495.20.3.21",
+        "code": "13"
+      }
+    },
+    {
+      "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_InsuranceOrganizationCategory",
+      "valueCoding": {
+        "system": "urn:oid:1.2.392.100495.20.3.22",
+        "code": "1"
+      }
+    },
+    {
+      "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Organization_InsuranceOrganizationNo",
+      "valueIdentifier": {
+        "system": "urn:oid:1.2.392.100495.20.3.23",
+        "value": "9876543"
+      }
+    },
+    {
+      "url": "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "26",
+            "system": "urn:oid:1.2.392.200250.2.2.2",
+            "display": "眼科"
+          }
+        ]
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://jpfhir.jp/fhir/core/IdSystem/insurance-medical-institution-no",
+      "value": "1319876543"
+    }
+  ],
+  "name": "港診療所",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "03-9876-5432"
+    }
+  ],
+  "address": [
+    {
+      "text": "東京都港区新橋１−２−３",
+      "postalCode": "106-9900",
+      "country": "JP"
+    }
+  ]
+}

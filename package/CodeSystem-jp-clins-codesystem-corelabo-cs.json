@@ -1,0 +1,1956 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "JP_CLINS_CodeSystem_CoreLabo_CS",
+  "id": "jp-clins-codesystem-corelabo-cs",
+  "title": "CLINS 電子カルテ共有サービス用:検体検査項目セット",
+  "description": "CLINS 電子カルテ共有サービス用 検体検査項目セット",
+  "url": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS",
+  "concept": [
+    {
+      "code": "ALB",
+      "concept": [
+        {
+          "code": "3A015000001827101",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000001899801",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000001899901",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000002306301",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000002327101",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000002329101",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000002399801",
+          "display": "ALB"
+        },
+        {
+          "code": "3A015000002399901",
+          "display": "ALB"
+        }
+      ]
+    },
+    {
+      "code": "ALP",
+      "concept": [
+        {
+          "code": "3B070000001829101",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000001899801",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000001899901",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000001929101",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000001999801",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000001999901",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000002327101",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000002327501",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000002327701",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000002399801",
+          "display": "ALP"
+        },
+        {
+          "code": "3B070000002399901",
+          "display": "ALP"
+        }
+      ]
+    },
+    {
+      "code": "ALT",
+      "concept": [
+        {
+          "code": "3B045000001827701",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000001899801",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000001899901",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000001929101",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000001999801",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000001999901",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000002327201",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000002327701",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000002327801",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000002329101",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000002399801",
+          "display": "ALT"
+        },
+        {
+          "code": "3B045000002399901",
+          "display": "ALT"
+        }
+      ]
+    },
+    {
+      "code": "AMY",
+      "concept": [
+        {
+          "code": "3B160000001827701",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000001899801",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000001899901",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000001929101",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000001999801",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000001999901",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000002327101",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000002327701",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000002329101",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000002399801",
+          "display": "AMY"
+        },
+        {
+          "code": "3B160000002399901",
+          "display": "AMY"
+        }
+      ]
+    },
+    {
+      "code": "APTT",
+      "concept": [
+        {
+          "code": "2B020000002231151",
+          "display": "APTT"
+        },
+        {
+          "code": "2B020000002299851",
+          "display": "APTT"
+        },
+        {
+          "code": "2B020000002299951",
+          "display": "APTT"
+        }
+      ]
+    },
+    {
+      "code": "AST",
+      "concept": [
+        {
+          "code": "3B035000001827701",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000001899801",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000001899901",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000001929101",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000001999801",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000001999901",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000002327201",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000002327701",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000002327801",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000002329101",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000002399801",
+          "display": "AST"
+        },
+        {
+          "code": "3B035000002399901",
+          "display": "AST"
+        }
+      ]
+    },
+    {
+      "code": "BNP",
+      "concept": [
+        {
+          "code": "4Z271000001905201",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000001919001",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000001999801",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000001999901",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002202301",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002205101",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002205201",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002206201",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002219001",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002299801",
+          "display": "BNP"
+        },
+        {
+          "code": "4Z271000002299901",
+          "display": "BNP"
+        }
+      ]
+    },
+    {
+      "code": "BS",
+      "concept": [
+        {
+          "code": "3D010000001826201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001827101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001829101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001899801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001899901",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001926201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001929101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001999801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000001999901",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002126201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002226201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002227101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002227201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002229101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002299801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002299901",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002326201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002327101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002327201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002329101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002399801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002399901",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002129101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002199801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010000002199901",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129901926101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129901927201",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129901999801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129901999901",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129902227101",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129902299801",
+          "display": "BS"
+        },
+        {
+          "code": "3D010129902299901",
+          "display": "BS"
+        }
+      ]
+    },
+    {
+      "code": "BUN",
+      "concept": [
+        {
+          "code": "3C025000001826201",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001827101",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001829101",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001899801",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001899901",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001929101",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001999801",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000001999901",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000002326401",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000002327101",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000002327201",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000002329101",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000002399801",
+          "display": "BUN"
+        },
+        {
+          "code": "3C025000002399901",
+          "display": "BUN"
+        }
+      ]
+    },
+    {
+      "code": "Ca",
+      "concept": [
+        {
+          "code": "3H030000002327101",
+          "display": "Ca"
+        },
+        {
+          "code": "3H030000002327201",
+          "display": "Ca"
+        },
+        {
+          "code": "3H030000002329101",
+          "display": "Ca"
+        },
+        {
+          "code": "3H030000002399801",
+          "display": "Ca"
+        },
+        {
+          "code": "3H030000002399901",
+          "display": "Ca"
+        }
+      ]
+    },
+    {
+      "code": "ChE",
+      "concept": [
+        {
+          "code": "3B110000002327101",
+          "display": "ChE"
+        },
+        {
+          "code": "3B110000002327201",
+          "display": "ChE"
+        },
+        {
+          "code": "3B110000002327701",
+          "display": "ChE"
+        },
+        {
+          "code": "3B110000002329101",
+          "display": "ChE"
+        },
+        {
+          "code": "3B110000002399801",
+          "display": "ChE"
+        },
+        {
+          "code": "3B110000002399901",
+          "display": "ChE"
+        }
+      ]
+    },
+    {
+      "code": "CK",
+      "concept": [
+        {
+          "code": "3B010000001929101",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000001999801",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000001999901",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000002327101",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000002327201",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000002327801",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000002329101",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000002399801",
+          "display": "CK"
+        },
+        {
+          "code": "3B010000002399901",
+          "display": "CK"
+        }
+      ]
+    },
+    {
+      "code": "Cl",
+      "concept": [
+        {
+          "code": "3H020000001826101",
+          "display": "Cl"
+        },
+        {
+          "code": "3H020000001899801",
+          "display": "Cl"
+        },
+        {
+          "code": "3H020000001899901",
+          "display": "Cl"
+        },
+        {
+          "code": "3H020000002326101",
+          "display": "Cl"
+        },
+        {
+          "code": "3H020000002399801",
+          "display": "Cl"
+        },
+        {
+          "code": "3H020000002399901",
+          "display": "Cl"
+        }
+      ]
+    },
+    {
+      "code": "Cre",
+      "concept": [
+        {
+          "code": "3C015000001829101",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000001899801",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000001899901",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000001926201",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000001999801",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000001999901",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000002327101",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000002329101",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000002399801",
+          "display": "Cre"
+        },
+        {
+          "code": "3C015000002399901",
+          "display": "Cre"
+        }
+      ]
+    },
+    {
+      "code": "CRP",
+      "concept": [
+        {
+          "code": "5C070000001804301",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001806201",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001899801",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001899901",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001906201",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001919501",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001999801",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000001999901",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002302301",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002304101",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002306101",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002306201",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002306211",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002306301",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002329101",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002399801",
+          "display": "CRP"
+        },
+        {
+          "code": "5C070000002399901",
+          "display": "CRP"
+        }
+      ]
+    },
+    {
+      "code": "CRP-class",
+      "concept": [
+        {
+          "code": "5C070000001819012",
+          "display": "CRP-class"
+        },
+        {
+          "code": "5C070000001899812",
+          "display": "CRP-class"
+        },
+        {
+          "code": "5C070000001899912",
+          "display": "CRP-class"
+        }
+      ]
+    },
+    {
+      "code": "Cys-C",
+      "concept": [
+        {
+          "code": "3C016000002106201",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002199801",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002199901",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002302301",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002306201",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002306301",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002306401",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002399801",
+          "display": "Cys-C"
+        },
+        {
+          "code": "3C016000002399901",
+          "display": "Cys-C"
+        }
+      ]
+    },
+    {
+      "code": "D-Bil",
+      "concept": [
+        {
+          "code": "3J015000002327101",
+          "display": "D-Bil"
+        },
+        {
+          "code": "3J015000002329101",
+          "display": "D-Bil"
+        },
+        {
+          "code": "3J015000002329151",
+          "display": "D-Bil"
+        },
+        {
+          "code": "3J015000002399801",
+          "display": "D-Bil"
+        },
+        {
+          "code": "3J015000002399901",
+          "display": "D-Bil"
+        }
+      ]
+    },
+    {
+      "code": "DD",
+      "concept": [
+        {
+          "code": "2B140000001904301",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000001919001",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000001999801",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000001999901",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002202301",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002205201",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002206201",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002211701",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002219001",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002299801",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002299901",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002304101",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002399801",
+          "display": "DD"
+        },
+        {
+          "code": "2B140000002399901",
+          "display": "DD"
+        }
+      ]
+    },
+    {
+      "code": "DD-RESULT",
+      "concept": [
+        {
+          "code": "2B140000002206211",
+          "display": "DD-判定"
+        },
+        {
+          "code": "2B140000002211711",
+          "display": "DD-判定"
+        },
+        {
+          "code": "2B140000002299811",
+          "display": "DD-判定"
+        },
+        {
+          "code": "2B140000002299911",
+          "display": "DD-判定"
+        }
+      ]
+    },
+    {
+      "code": "FBS",
+      "concept": [
+        {
+          "code": "3D010130001926101",
+          "display": "FBS"
+        },
+        {
+          "code": "3D010130001927201",
+          "display": "FBS"
+        },
+        {
+          "code": "3D010130001999801",
+          "display": "FBS"
+        },
+        {
+          "code": "3D010130001999901",
+          "display": "FBS"
+        }
+      ]
+    },
+    {
+      "code": "GGT",
+      "concept": [
+        {
+          "code": "3B090000001827701",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000001899801",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000001899901",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000001929101",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000001999801",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000001999901",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000002327101",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000002327701",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000002329101",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000002399801",
+          "display": "GGT"
+        },
+        {
+          "code": "3B090000002399901",
+          "display": "GGT"
+        }
+      ]
+    },
+    {
+      "code": "Hb",
+      "concept": [
+        {
+          "code": "2A030000001930101",
+          "display": "Hb"
+        },
+        {
+          "code": "2A030000001999801",
+          "display": "Hb"
+        },
+        {
+          "code": "2A030000001999901",
+          "display": "Hb"
+        },
+        {
+          "code": "2A990000001930953",
+          "display": "Hb"
+        }
+      ]
+    },
+    {
+      "code": "HbA1c-NGSP",
+      "concept": [
+        {
+          "code": "3D046000001806201",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001829101",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001899801",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001899901",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001906102",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001906202",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001920402",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001921002",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001923702",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001927102",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001999802",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000001999902",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000002129102",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000002199802",
+          "display": "HbA1c-NGSP"
+        },
+        {
+          "code": "3D046000002199902",
+          "display": "HbA1c-NGSP"
+        }
+      ]
+    },
+    {
+      "code": "HDL-C",
+      "concept": [
+        {
+          "code": "3F070000002227101",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002299801",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002299901",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002327101",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002327201",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002329101",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002399801",
+          "display": "HDL-C"
+        },
+        {
+          "code": "3F070000002399901",
+          "display": "HDL-C"
+        }
+      ]
+    },
+    {
+      "code": "K",
+      "concept": [
+        {
+          "code": "3H015000001826101",
+          "display": "K"
+        },
+        {
+          "code": "3H015000001899801",
+          "display": "K"
+        },
+        {
+          "code": "3H015000001899901",
+          "display": "K"
+        },
+        {
+          "code": "3H015000002326101",
+          "display": "K"
+        },
+        {
+          "code": "3H015000002327201",
+          "display": "K"
+        },
+        {
+          "code": "3H015000002329101",
+          "display": "K"
+        },
+        {
+          "code": "3H015000002399801",
+          "display": "K"
+        },
+        {
+          "code": "3H015000002399901",
+          "display": "K"
+        }
+      ]
+    },
+    {
+      "code": "LD",
+      "concept": [
+        {
+          "code": "3B050000002327201",
+          "display": "LD"
+        },
+        {
+          "code": "3B050000002327801",
+          "display": "LD"
+        },
+        {
+          "code": "3B050000002327901",
+          "display": "LD"
+        },
+        {
+          "code": "3B050000002329101",
+          "display": "LD"
+        },
+        {
+          "code": "3B050000002399801",
+          "display": "LD"
+        },
+        {
+          "code": "3B050000002399901",
+          "display": "LD"
+        }
+      ]
+    },
+    {
+      "code": "LDL-C",
+      "concept": [
+        {
+          "code": "3F077000002327101",
+          "display": "LDL-C"
+        },
+        {
+          "code": "3F077000002327201",
+          "display": "LDL-C"
+        },
+        {
+          "code": "3F077000002391901",
+          "display": "LDL-C"
+        },
+        {
+          "code": "3F077000002399801",
+          "display": "LDL-C"
+        },
+        {
+          "code": "3F077000002399901",
+          "display": "LDL-C"
+        }
+      ]
+    },
+    {
+      "code": "Na",
+      "concept": [
+        {
+          "code": "3H010000001826101",
+          "display": "Na"
+        },
+        {
+          "code": "3H010000001899801",
+          "display": "Na"
+        },
+        {
+          "code": "3H010000001899901",
+          "display": "Na"
+        },
+        {
+          "code": "3H010000002326101",
+          "display": "Na"
+        },
+        {
+          "code": "3H010000002327101",
+          "display": "Na"
+        },
+        {
+          "code": "3H010000002399801",
+          "display": "Na"
+        },
+        {
+          "code": "3H010000002399901",
+          "display": "Na"
+        }
+      ]
+    },
+    {
+      "code": "NT-proBNP",
+      "concept": [
+        {
+          "code": "4Z272000001904301",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000001919001",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000001999801",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000001999901",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002202301",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002299801",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002299901",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002302301",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002302401",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002305101",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002305201",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002305301",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002399801",
+          "display": "NT-proBNP"
+        },
+        {
+          "code": "4Z272000002399901",
+          "display": "NT-proBNP"
+        }
+      ]
+    },
+    {
+      "code": "PLT",
+      "concept": [
+        {
+          "code": "2A050000001930101",
+          "display": "PLT"
+        },
+        {
+          "code": "2A050000001930901",
+          "display": "PLT"
+        },
+        {
+          "code": "2A050000001999801",
+          "display": "PLT"
+        },
+        {
+          "code": "2A050000001999901",
+          "display": "PLT"
+        },
+        {
+          "code": "2A990000001930955",
+          "display": "PLT"
+        }
+      ]
+    },
+    {
+      "code": "PT-INR",
+      "concept": [
+        {
+          "code": "2B030000001831157",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000001899857",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000001899957",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000002131157",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000002199857",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000002199957",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000002231157",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000002299857",
+          "display": "PT-INR"
+        },
+        {
+          "code": "2B030000002299957",
+          "display": "PT-INR"
+        }
+      ]
+    },
+    {
+      "code": "PT-Act",
+      "concept": [
+        {
+          "code": "2B030000002231153",
+          "display": "PT-活性%"
+        },
+        {
+          "code": "2B030000002299853",
+          "display": "PT-活性%"
+        },
+        {
+          "code": "2B030000002299953",
+          "display": "PT-活性%"
+        }
+      ]
+    },
+    {
+      "code": "PT-Sec",
+      "concept": [
+        {
+          "code": "2B030000001831151",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000001831153",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000001899851",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000001899951",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000002131151",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000002199851",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000002199951",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000002231151",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000002299851",
+          "display": "PT-秒"
+        },
+        {
+          "code": "2B030000002299951",
+          "display": "PT-秒"
+        }
+      ]
+    },
+    {
+      "code": "PT-Ratio",
+      "concept": [
+        {
+          "code": "2B030000002231155",
+          "display": "PT比"
+        },
+        {
+          "code": "2B030000002299855",
+          "display": "PT比"
+        },
+        {
+          "code": "2B030000002299955",
+          "display": "PT比"
+        }
+      ]
+    },
+    {
+      "code": "RBC",
+      "concept": [
+        {
+          "code": "2A020000001930101",
+          "display": "RBC"
+        },
+        {
+          "code": "2A020000001999801",
+          "display": "RBC"
+        },
+        {
+          "code": "2A020000001999901",
+          "display": "RBC"
+        },
+        {
+          "code": "2A990000001930951",
+          "display": "RBC"
+        }
+      ]
+    },
+    {
+      "code": "T-Bil",
+      "concept": [
+        {
+          "code": "3J010000001927101",
+          "display": "T-Bil"
+        },
+        {
+          "code": "3J010000001999801",
+          "display": "T-Bil"
+        },
+        {
+          "code": "3J010000001999901",
+          "display": "T-Bil"
+        },
+        {
+          "code": "3J010000002327101",
+          "display": "T-Bil"
+        },
+        {
+          "code": "3J010000002329101",
+          "display": "T-Bil"
+        },
+        {
+          "code": "3J010000002399801",
+          "display": "T-Bil"
+        },
+        {
+          "code": "3J010000002399901",
+          "display": "T-Bil"
+        }
+      ]
+    },
+    {
+      "code": "T-CHO",
+      "concept": [
+        {
+          "code": "3F050000002227101",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002299801",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002299901",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002327101",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002327201",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002329101",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002399801",
+          "display": "T-CHO"
+        },
+        {
+          "code": "3F050000002399901",
+          "display": "T-CHO"
+        }
+      ]
+    },
+    {
+      "code": "TG",
+      "concept": [
+        {
+          "code": "3F015000002227101",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002299801",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002299901",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002327101",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002327201",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002329101",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002399801",
+          "display": "TG"
+        },
+        {
+          "code": "3F015000002399901",
+          "display": "TG"
+        },
+        {
+          "code": "3F015129902327101",
+          "display": "TG"
+        }
+      ]
+    },
+    {
+      "code": "TP",
+      "concept": [
+        {
+          "code": "3A010000002327101",
+          "display": "TP"
+        },
+        {
+          "code": "3A010000002329101",
+          "display": "TP"
+        },
+        {
+          "code": "3A010000002399801",
+          "display": "TP"
+        },
+        {
+          "code": "3A010000002399901",
+          "display": "TP"
+        }
+      ]
+    },
+    {
+      "code": "U-AperC",
+      "concept": [
+        {
+          "code": "1A990000000190184",
+          "display": "U-A/C"
+        },
+        {
+          "code": "1A990000000191184",
+          "display": "U-A/C"
+        },
+        {
+          "code": "1A990000000199884",
+          "display": "U-A/C"
+        },
+        {
+          "code": "1A990000000199984",
+          "display": "U-A/C"
+        },
+        {
+          "code": "3A015000000106128",
+          "display": "U-A/C"
+        }
+      ]
+    },
+    {
+      "code": "U-Bld",
+      "concept": [
+        {
+          "code": "1A100000000190159",
+          "display": "U-Bld"
+        },
+        {
+          "code": "1A100000000191159",
+          "display": "U-Bld"
+        },
+        {
+          "code": "1A100000000190111",
+          "display": "U-Bld"
+        },
+        {
+          "code": "1A100000000191111",
+          "display": "U-Bld"
+        },
+        {
+          "code": "1A100000000199811",
+          "display": "U-Bld"
+        },
+        {
+          "code": "1A100000000199911",
+          "display": "U-Bld"
+        }
+      ]
+    },
+    {
+      "code": "U-Bld-QLHalfQty",
+      "concept": [
+        {
+          "code": "1A990000000190159",
+          "display": "U-Bld-定性半定量"
+        },
+        {
+          "code": "1A990000000191159",
+          "display": "U-Bld-定性半定量"
+        },
+        {
+          "code": "1A990000000199859",
+          "display": "U-Bld-定性半定量"
+        },
+        {
+          "code": "1A990000000199959",
+          "display": "U-Bld-定性半定量"
+        }
+      ]
+    },
+    {
+      "code": "U-Bld-HalfQty",
+      "concept": [
+        {
+          "code": "1A990000000190177",
+          "display": "U-Bld-半定量"
+        },
+        {
+          "code": "1A990000000191177",
+          "display": "U-Bld-半定量"
+        },
+        {
+          "code": "1A990000000199877",
+          "display": "U-Bld-半定量"
+        },
+        {
+          "code": "1A990000000199977",
+          "display": "U-Bld-半定量"
+        }
+      ]
+    },
+    {
+      "code": "U-Glu",
+      "concept": [
+        {
+          "code": "1A020000000190154",
+          "display": "U-Glu"
+        },
+        {
+          "code": "1A020000000191154",
+          "display": "U-Glu-"
+        },
+        {
+          "code": "1A020000000190111",
+          "display": "U-Glu"
+        },
+        {
+          "code": "1A020000000191111",
+          "display": "U-Glu"
+        }
+      ]
+    },
+    {
+      "code": "U-Glu-QLHalfQty",
+      "concept": [
+        {
+          "code": "1A990000000190154",
+          "display": "U-Glu-定性半定量"
+        },
+        {
+          "code": "1A990000000191154",
+          "display": "U-Glu-定性半定量"
+        },
+        {
+          "code": "1A990000000199854",
+          "display": "U-Glu-定性半定量"
+        },
+        {
+          "code": "1A990000000199954",
+          "display": "U-Glu-定性半定量"
+        }
+      ]
+    },
+    {
+      "code": "U-Glu-HalfQty",
+      "concept": [
+        {
+          "code": "1A990000000190172",
+          "display": "U-Glu-半定量"
+        },
+        {
+          "code": "1A990000000191172",
+          "display": "U-Glu-半定量"
+        },
+        {
+          "code": "1A990000000199872",
+          "display": "U-Glu-半定量"
+        },
+        {
+          "code": "1A990000000199972",
+          "display": "U-Glu-半定量"
+        }
+      ]
+    },
+    {
+      "code": "U-PperC",
+      "concept": [
+        {
+          "code": "1A015000000127128",
+          "display": "U-P/C"
+        },
+        {
+          "code": "1A990000000190183",
+          "display": "U-P/C"
+        },
+        {
+          "code": "1A990000000191183",
+          "display": "U-P/C"
+        },
+        {
+          "code": "1A990000000199883",
+          "display": "U-P/C"
+        },
+        {
+          "code": "1A990000000199983",
+          "display": "U-P/C"
+        }
+      ]
+    },
+    {
+      "code": "U-TP",
+      "concept": [
+        {
+          "code": "1A010000000190153",
+          "display": "U-TP"
+        },
+        {
+          "code": "1A010000000191153",
+          "display": "U-TP"
+        },
+        {
+          "code": "1A010000000190111",
+          "display": "U-TP"
+        },
+        {
+          "code": "1A010000000191111",
+          "display": "U-TP"
+        },
+        {
+          "code": "1A010000000199811",
+          "display": "U-TP"
+        },
+        {
+          "code": "1A010000000199911",
+          "display": "U-TP"
+        }
+      ]
+    },
+    {
+      "code": "U-TP-QLHalfQty",
+      "concept": [
+        {
+          "code": "1A990000000190153",
+          "display": "U-TP-定性半定量"
+        },
+        {
+          "code": "1A990000000191153",
+          "display": "U-TP-定性半定量"
+        },
+        {
+          "code": "1A990000000199853",
+          "display": "U-TP-定性半定量"
+        },
+        {
+          "code": "1A990000000199953",
+          "display": "U-TP-定性半定量"
+        }
+      ]
+    },
+    {
+      "code": "U-TP-HalfQty",
+      "concept": [
+        {
+          "code": "1A990000000190171",
+          "display": "U-TP-半定量"
+        },
+        {
+          "code": "1A990000000191171",
+          "display": "U-TP-半定量"
+        },
+        {
+          "code": "1A990000000199871",
+          "display": "U-TP-半定量"
+        },
+        {
+          "code": "1A990000000199971",
+          "display": "U-TP-半定量"
+        }
+      ]
+    },
+    {
+      "code": "UA",
+      "concept": [
+        {
+          "code": "3C020000001929101",
+          "display": "UA"
+        },
+        {
+          "code": "3C020000001999801",
+          "display": "UA"
+        },
+        {
+          "code": "3C020000001999901",
+          "display": "UA"
+        },
+        {
+          "code": "3C020000002327101",
+          "display": "UA"
+        },
+        {
+          "code": "3C020000002329101",
+          "display": "UA"
+        },
+        {
+          "code": "3C020000002399801",
+          "display": "UA"
+        },
+        {
+          "code": "3C020000002399901",
+          "display": "UA"
+        }
+      ]
+    },
+    {
+      "code": "WBC",
+      "concept": [
+        {
+          "code": "2A010000001930101",
+          "display": "WBC"
+        },
+        {
+          "code": "2A010000001999801",
+          "display": "WBC"
+        },
+        {
+          "code": "2A010000001999901",
+          "display": "WBC"
+        },
+        {
+          "code": "2A990000001930952",
+          "display": "WBC"
+        }
+      ]
+    },
+    {
+      "code": "BLD-ABO",
+      "concept": [
+        {
+          "code": "5H010000001910111",
+          "display": "⾎液型-ABO"
+        },
+        {
+          "code": "5H010000001910114",
+          "display": "⾎液型-ABO"
+        },
+        {
+          "code": "5H010000001999811",
+          "display": "⾎液型-ABO"
+        },
+        {
+          "code": "5H010000001999911",
+          "display": "⾎液型-ABO"
+        }
+      ]
+    },
+    {
+      "code": "BLD-Rh",
+      "concept": [
+        {
+          "code": "5H020000001910111",
+          "display": "⾎液型-Rh"
+        },
+        {
+          "code": "5H020000001910114",
+          "display": "⾎液型-Rh"
+        },
+        {
+          "code": "5H020000001999811",
+          "display": "⾎液型-Rh"
+        },
+        {
+          "code": "5H020000001999911",
+          "display": "⾎液型-Rh"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-10-04T00:45:56.836+09:00"
+  },
+  "caseSensitive": true,
+  "experimental": false,
+  "copyright": "Copyright MHLW and Japanese Society of Laboratory Medicine. All Rights Reserved.",
+  "hierarchyMeaning": "grouped-by",
+  "count": 470
+}

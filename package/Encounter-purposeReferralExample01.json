@@ -1,0 +1,27 @@
+{
+  "resourceType": "Encounter",
+  "id": "purposeReferralExample01",
+  "meta": {
+    "lastUpdated": "2021-11-26T10:00:00+09:00",
+    "profile": [
+      "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Encounter_eCS"
+    ]
+  },
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "外来"
+  },
+  "identifier": [
+    {
+      "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+      "value": "192837"
+    }
+  ],
+  "reasonCode": [
+    {
+      "text": "腹痛精査お願いします。"
+    }
+  ]
+}

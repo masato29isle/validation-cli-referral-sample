@@ -1,0 +1,113 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Patient-CLINS-eCS",
+  "url": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS",
+  "name": "JP_Patient_CLINS_eCS",
+  "title": "CLINS電子カルテ情報共有サービス用:JP_Patient_CLINS_eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "CLINS 電子カルテ共有サービス用: Patientリソース（患者情報）プロファイル。JP_Patient_eCSからの派生プロファイル。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "loinc",
+      "uri": "http://loinc.org",
+      "name": "LOINC code for the element"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Patient_eCS",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient",
+        "path": "Patient",
+        "short": "電子カルテ共有サービスにおける患者情報の記述に使用する。",
+        "definition": "電子カルテ共有サービスにおける患者情報の記述に使用する。",
+        "comment": "電子カルテ共有サービス以外では別のプロファイル　JP_Patient_eCSが用意されている。本プロファイルは、患者を識別するidentifierとして、被保険者個人識別子を必須としている。また親プロファイルJP_Patient_eCSでは、name.family, name.given, gender, birthDate,address.text, address.city, address.stateを必須としている。",
+        "constraint": [
+          {
+            "key": "valid-system-local-patientID",
+            "severity": "error",
+            "human": "R1011:施設患者IDを記述する場合には、identifier.systemは、'urn:oid:1.2.392.100495.20.3.51.[1+施設番号10桁]'であり、かつその施設番号10桁はextension[eCS_InstitutionNumber].valueIdentifier.value値と一致しなければならない。",
+            "expression": "(identifier.where(system.substring(0,31) = 'urn:oid:1.2.392.100495.20.3.51.').count()=1 and (identifier.where(system.substring(0,31) = 'urn:oid:1.2.392.100495.20.3.51.')).system.substring(31,11) = '1' + extension('http://jpfhir.jp/fhir/clins/Extension/StructureDefinition/JP_eCS_InstitutionNumber').value.ofType(Identifier).value) or (identifier.where(system.substring(0,31) = 'urn:oid:1.2.392.100495.20.3.51.').empty())",
+            "source": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS"
+          },
+          {
+            "key": "valid-system-insurance-patientIdentifier",
+            "severity": "error",
+            "human": "R1012:被保険者識別子情報(identifier.system=\"http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID\")は１つだけ必須。",
+            "expression": "(identifier.where(system = 'http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID').count()=1)",
+            "source": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS"
+          },
+          {
+            "key": "valid-value-insurance-patientIdentifier",
+            "severity": "error",
+            "human": "R1013:identifier.value 被保険者識別子情報の形式は、\"保険者等番号:被保険者記号:被保険者番号:被保険者証等枝番\"で、それぞれ半角英数字8桁固定、半角または全角文字列(空白を含まない)、半角または全角文字列(同)、半角数字2桁固定(1文字目は0)であり、それぞれ存在しない場合には、空文字列とする。",
+            "expression": "(identifier.where(system = 'http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID').count()=1 and identifier.where(system = 'http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID').value.matches('^[0-9]{8}:[^:^\\\\s^　]*:[^:^\\\\s^　]*:0[0-9]$'))",
+            "source": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS"
+          }
+        ]
+      },
+      {
+        "id": "Patient.meta.profile",
+        "path": "Patient.meta.profile",
+        "short": "準拠しているプロファイルとして次のURLを指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS",
+        "definition": "準拠しているプロファイルとして次のURLを指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS",
+        "min": 1,
+        "max": "1",
+        "patternCanonical": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.extension",
+        "path": "Patient.extension",
+        "min": 1
+      },
+      {
+        "id": "Patient.extension:eCS_InstitutionNumber",
+        "path": "Patient.extension",
+        "sliceName": "eCS_InstitutionNumber",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/clins/Extension/StructureDefinition/JP_eCS_InstitutionNumber"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier",
+        "path": "Patient.identifier",
+        "short": "電子カルテ情報共有サービスでは、保険者・被保険者番号情報(system=\"http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID\")は必須。被保険者個人識別子の仕様は「被保険者個人識別子」の文字列仕様を参照のこと。それに加えて自施設の患者番号（system=\"urn:oid:1.2.392.100495.20.3.51.[1+施設番号10桁]\"）やその他の識別子を記述することが可能。"
+      }
+    ]
+  }
+}

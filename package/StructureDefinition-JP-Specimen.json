@@ -1,0 +1,41 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Specimen",
+  "url": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Specimen",
+  "name": "JP_Specimen",
+  "status": "active",
+  "date": "2023-03-31",
+  "description": "JP-Specimen　暫定プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Specimen",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Specimen",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Specimen.meta.lastUpdated",
+        "path": "Specimen.meta.lastUpdated",
+        "mustSupport": true
+      }
+    ]
+  }
+}

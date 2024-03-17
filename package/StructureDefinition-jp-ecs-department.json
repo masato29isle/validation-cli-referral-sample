@@ -1,0 +1,81 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-ecs-department",
+  "url": "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department",
+  "name": "JP_eCS_Department",
+  "title": "JP eCS Department Extension",
+  "status": "active",
+  "date": "2023-10-09",
+  "description": "診療サマリーや6情報等に記述する際に、発行診療科または発行者の診療科情報を記述する拡張",
+  "purpose": "診療サマリーや6情報等に記述する際に、発行診療科または発行者の診療科情報を記述するため。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MedicationRequest"
+    },
+    {
+      "type": "element",
+      "expression": "AllergyIntolerance"
+    },
+    {
+      "type": "element",
+      "expression": "Condition"
+    },
+    {
+      "type": "element",
+      "expression": "Observation"
+    },
+    {
+      "type": "element",
+      "expression": "Organization"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "診療科情報を記述するための拡張",
+        "definition": "発行診療科または発行者の診療科情報を記述する"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "short": "診療科コードと名称等を設定する。",
+        "definition": "診療科コードと名称等を設定する。",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://jpfhir.jp/fhir/core/ValueSet/JP_Department_SsMix_VS"
+        }
+      }
+    ]
+  }
+}

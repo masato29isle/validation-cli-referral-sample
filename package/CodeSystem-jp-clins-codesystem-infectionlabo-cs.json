@@ -1,0 +1,1359 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "JP_CLINS_CodeSystem_InfectionLabo_CS",
+  "id": "jp-clins-codesystem-infectionlabo-cs",
+  "title": "CLINS 電子カルテ共有サービス用:感染症検査項目セット",
+  "description": "CLINS 電子カルテ共有サービス用 感染症検査項目セット",
+  "url": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS",
+  "concept": [
+    {
+      "code": "HCV-CHECK",
+      "display": "C型肝炎ウイルス検診の判定",
+      "concept": [
+        {
+          "code": "5F360140602302314",
+          "display": "C型肝炎ウイルス検診の判定"
+        },
+        {
+          "code": "5F360140602305214",
+          "display": "C型肝炎ウイルス検診の判定"
+        },
+        {
+          "code": "5F360140602399814",
+          "display": "C型肝炎ウイルス検診の判定"
+        },
+        {
+          "code": "5F360140602399914",
+          "display": "C型肝炎ウイルス検診の判定"
+        }
+      ]
+    },
+    {
+      "code": "HBS-AG-SCO",
+      "display": "HBs抗原(S/CO)",
+      "concept": [
+        {
+          "code": "5F016141002305151",
+          "display": "HBs抗原(S/CO)"
+        },
+        {
+          "code": "5F016141002399851",
+          "display": "HBs抗原(S/CO)"
+        },
+        {
+          "code": "5F016141002399951",
+          "display": "HBs抗原(S/CO)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AG-COI",
+      "display": "HBs抗原(コントロール比)",
+      "concept": [
+        {
+          "code": "5F016141002302331",
+          "display": "HBs抗原(コントロール比)"
+        },
+        {
+          "code": "5F016141002305231",
+          "display": "HBs抗原(コントロール比)"
+        },
+        {
+          "code": "5F016141002399831",
+          "display": "HBs抗原(コントロール比)"
+        },
+        {
+          "code": "5F016141002399931",
+          "display": "HBs抗原(コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AG-DIL",
+      "display": "HBs抗原(希釈倍率)",
+      "concept": [
+        {
+          "code": "5F016141002310405",
+          "display": "HBs抗原(希釈倍率)"
+        },
+        {
+          "code": "5F016141002311705",
+          "display": "HBs抗原(希釈倍率)"
+        },
+        {
+          "code": "5F016141002399805",
+          "display": "HBs抗原(希釈倍率)"
+        },
+        {
+          "code": "5F016141002399905",
+          "display": "HBs抗原(希釈倍率)"
+        }
+      ]
+    },
+    {
+      "code": "Hbs-AG-OD",
+      "display": "HBs抗原(吸光度)",
+      "concept": [
+        {
+          "code": "5F016141002302304",
+          "display": "HBs抗原(吸光度)"
+        },
+        {
+          "code": "5F016141002399804",
+          "display": "HBs抗原(吸光度)"
+        },
+        {
+          "code": "5F016141002399904",
+          "display": "HBs抗原(吸光度)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AG-QUANT",
+      "display": "HBs抗原(定量)",
+      "concept": [
+        {
+          "code": "5F016141002302301",
+          "display": "HBs抗原(定量)"
+        },
+        {
+          "code": "5F016141002305101",
+          "display": "HBs抗原(定量)"
+        },
+        {
+          "code": "5F016141002305201",
+          "display": "HBs抗原(定量)"
+        },
+        {
+          "code": "5F016141002305301",
+          "display": "HBs抗原(定量)"
+        },
+        {
+          "code": "5F016141002306301",
+          "display": "HBs抗原(定量)"
+        },
+        {
+          "code": "5F016141002399801",
+          "display": "HBs抗原(定量)"
+        },
+        {
+          "code": "5F016141002399901",
+          "display": "HBs抗原(定量)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AG-RESULT",
+      "display": "HBs抗原(判定)",
+      "concept": [
+        {
+          "code": "5F016141001819011",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141001899811",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141001899911",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002302311",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002305111",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002305152",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002305211",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002305311",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002306311",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002310411",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002311711",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002319011",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002399811",
+          "display": "HBs抗原(判定)"
+        },
+        {
+          "code": "5F016141002399911",
+          "display": "HBs抗原(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AG-POS-COI",
+      "display": "HBs抗原(陽性コントロール比)",
+      "concept": [
+        {
+          "code": "5F016141002305133",
+          "display": "HBs抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F016141002305233",
+          "display": "HBs抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F016141002399833",
+          "display": "HBs抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F016141002399933",
+          "display": "HBs抗原(陽性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AB-COI",
+      "display": "HBs抗体(コントロール比)",
+      "concept": [
+        {
+          "code": "5F016143002302331",
+          "display": "HBs抗体(コントロール比)"
+        },
+        {
+          "code": "5F016143002399831",
+          "display": "HBs抗体(コントロール比)"
+        },
+        {
+          "code": "5F016143002399931",
+          "display": "HBs抗体(コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AB-NEG-COI",
+      "display": "HBs抗体(陰性コントロール比)",
+      "concept": [
+        {
+          "code": "5F016143002302332",
+          "display": "HBs抗体(陰性コントロール比)"
+        },
+        {
+          "code": "5F016143002399833",
+          "display": "HBs抗体(陰性コントロール比)"
+        },
+        {
+          "code": "5F016143002399933",
+          "display": "HBs抗体(陰性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AB-DIL",
+      "display": "HBs抗体(希釈倍率)",
+      "concept": [
+        {
+          "code": "5F016143002310305",
+          "display": "HBs抗体(希釈倍率)"
+        },
+        {
+          "code": "5F016143002399805",
+          "display": "HBs抗体(希釈倍率)"
+        },
+        {
+          "code": "5F016143002399905",
+          "display": "HBs抗体(希釈倍率)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AB-QUANT",
+      "display": "HBs抗体(定量)",
+      "concept": [
+        {
+          "code": "5F016143002302301",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002304101",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002305101",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002305201",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002305301",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002306301",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002399801",
+          "display": "HBs抗体(定量)"
+        },
+        {
+          "code": "5F016143002399901",
+          "display": "HBs抗体(定量)"
+        }
+      ]
+    },
+    {
+      "code": "HBs-AB-RESULT",
+      "display": "HBs抗体(判定)",
+      "concept": [
+        {
+          "code": "5F016143002302311",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002304111",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002305111",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002305211",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002305311",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002306311",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002310311",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002319011",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002399811",
+          "display": "HBs抗体(判定)"
+        },
+        {
+          "code": "5F016143002399911",
+          "display": "HBs抗体(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-QUANT",
+      "display": "HCV核酸増幅検査(定量)",
+      "concept": [
+        {
+          "code": "5F360145302387501",
+          "display": "HCV核酸増幅検査(定量)"
+        },
+        {
+          "code": "5F360145302399801",
+          "display": "HCV核酸増幅検査(定量)"
+        },
+        {
+          "code": "5F360145302399901",
+          "display": "HCV核酸増幅検査(定量)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-RESULT",
+      "display": "HCV核酸増幅検査(判定)",
+      "concept": [
+        {
+          "code": "5F360145302387511",
+          "display": "HCV核酸増幅検査(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-AG-QUANT",
+      "display": "HCV抗原検査(定量)",
+      "concept": [
+        {
+          "code": "5F360150002302301",
+          "display": "HCV抗原検査(定量)"
+        },
+        {
+          "code": "5F360150002305101",
+          "display": "HCV抗原検査(定量)"
+        },
+        {
+          "code": "5F360150002399801",
+          "display": "HCV抗原検査(定量)"
+        },
+        {
+          "code": "5F360150002399901",
+          "display": "HCV抗原検査(定量)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-AG-RESULT",
+      "display": "HCV抗原検査(判定)",
+      "concept": [
+        {
+          "code": "5F360150002302311",
+          "display": "HCV抗原検査(判定)"
+        },
+        {
+          "code": "5F360150002305111",
+          "display": "HCV抗原検査(判定)"
+        },
+        {
+          "code": "5F360150002399811",
+          "display": "HCV抗原検査(判定)"
+        },
+        {
+          "code": "5F360150002399911",
+          "display": "HCV抗原検査(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-AB-COI",
+      "display": "HCV抗体(コントロール比)",
+      "concept": [
+        {
+          "code": "5F360148702305231",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360148802305231",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360148802305331",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360151002305231",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360151202302331",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360151302305231",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360151602306331",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360151702305231",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360152102305331",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360152102399831",
+          "display": "HCV抗体(コントロール比)"
+        },
+        {
+          "code": "5F360152102399931",
+          "display": "HCV抗体(コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-AB-DIL",
+      "display": "HCV抗体(希釈倍率)",
+      "concept": [
+        {
+          "code": "5F360151402311705",
+          "display": "HCV抗体(希釈倍率)"
+        },
+        {
+          "code": "5F360151402399805",
+          "display": "HCV抗体(希釈倍率)"
+        },
+        {
+          "code": "5F360151402399905",
+          "display": "HCV抗体(希釈倍率)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-AB-RESULT",
+      "display": "HCV抗体(判定)",
+      "concept": [
+        {
+          "code": "5F360148202302311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148502305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148702304111",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148702305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148702306211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148802302311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148802305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360148802305311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151002305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151002319011",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151102305111",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151202302311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151302302311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151302305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151402311711",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151502305111",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151602306311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151702305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151802305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360151902305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360152002305211",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360152102305311",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360152102399811",
+          "display": "HCV抗体(判定)"
+        },
+        {
+          "code": "5F360152102399911",
+          "display": "HCV抗体(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HCV-AB-POS-COI",
+      "display": "HCV抗体(陽性コントロール比)",
+      "concept": [
+        {
+          "code": "5F360148202302333",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360148502305233",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360148702304133",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360148702306233",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360148802302333",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360151102305133",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360151302302333",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360151502305133",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360151802305233",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360151902305233",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360152002305233",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360152002399833",
+          "display": "HCV抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F360152002399933",
+          "display": "HCV抗体(陽性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1-QUANT",
+      "display": "HIV-1(ウイルスRNA定量)",
+      "concept": [
+        {
+          "code": "5F500145302287501",
+          "display": "HIV-1(ウイルスRNA定量)"
+        },
+        {
+          "code": "5F500145302299801",
+          "display": "HIV-1(ウイルスRNA定量)"
+        },
+        {
+          "code": "5F500145302299901",
+          "display": "HIV-1(ウイルスRNA定量)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1-RESULT",
+      "display": "HIV-1(ウイルスRNA定量判定)",
+      "concept": [
+        {
+          "code": "5F500145302287511",
+          "display": "HIV-1(ウイルスRNA定量判定)"
+        },
+        {
+          "code": "5F500145302299811",
+          "display": "HIV-1(ウイルスRNA定量判定)"
+        },
+        {
+          "code": "5F500145302299911",
+          "display": "HIV-1(ウイルスRNA定量判定)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-P24-COIV",
+      "display": "HIV-1+2抗体・p24抗原(コントロール値)",
+      "concept": [
+        {
+          "code": "5F560155002302321",
+          "display": "HIV-1+2抗体・p24抗原(コントロール値)"
+        },
+        {
+          "code": "5F560155002399821",
+          "display": "HIV-1+2抗体・p24抗原(コントロール値)"
+        },
+        {
+          "code": "5F560155002399921",
+          "display": "HIV-1+2抗体・p24抗原(コントロール値)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-P24-COI",
+      "display": "HIV-1+2抗体・p24抗原(コントロール比)",
+      "concept": [
+        {
+          "code": "5F560155002305231",
+          "display": "HIV-1+2抗体・p24抗原(コントロール比)"
+        },
+        {
+          "code": "5F560155002305331",
+          "display": "HIV-1+2抗体・p24抗原(コントロール比)"
+        },
+        {
+          "code": "5F560155002399831",
+          "display": "HIV-1+2抗体・p24抗原(コントロール比)"
+        },
+        {
+          "code": "5F560155002399931",
+          "display": "HIV-1+2抗体・p24抗原(コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-P24-NEG-COI",
+      "display": "IV-1+2抗体・p24抗原(陰性コントロール比)",
+      "concept": [
+        {
+          "code": "5F560155002302332",
+          "display": "HIV-1+2抗体・p24抗原(陰性コントロール比)"
+        },
+        {
+          "code": "5F560155002399832",
+          "display": "HIV-1+2抗体・p24抗原(陰性コントロール比)"
+        },
+        {
+          "code": "5F560155002399932",
+          "display": "HIV-1+2抗体・p24抗原(陰性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-OD",
+      "display": "HIV-1+2抗体・p24抗原(吸光度)",
+      "concept": [
+        {
+          "code": "5F560155002302304",
+          "display": "HIV-1+2抗体・p24抗原(吸光度)"
+        },
+        {
+          "code": "5F560155002399804",
+          "display": "HIV-1+2抗体・p24抗原(吸光度)"
+        },
+        {
+          "code": "5F560155002399904",
+          "display": "HIV-1+2抗体・p24抗原(吸光度)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-P24-AB-RESULT",
+      "display": "HIV-1+2抗体・p24抗原(定性、HIV p24抗原)",
+      "concept": [
+        {
+          "code": "5F560155002319052",
+          "display": "HIV-1+2抗体・p24抗原(定性、HIV p24抗原)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-P24-QLRESULT",
+      "display": "HIV-1+2抗体・p24抗原(定性、HIV-1+2抗体)",
+      "concept": [
+        {
+          "code": "5F560155002319053",
+          "display": "HIV-1+2抗体・p24抗原(定性、HIV-1+2抗体)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-P24-AB-QUANT",
+      "display": "HIV-1+2抗体・p24抗原(定量、HIV p24抗原)",
+      "concept": [
+        {
+          "code": "5F560155002305352",
+          "display": "HIV-1+2抗体・p24抗原(定量、HIV p24抗原)"
+        },
+        {
+          "code": "5F560155002399852",
+          "display": "HIV-1+2抗体・p24抗原(定量、HIV p24抗原)"
+        },
+        {
+          "code": "5F560155002399952",
+          "display": "HIV-1+2抗体・p24抗原(定量、HIV p24抗原)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-QUANT",
+      "display": "HIV-1+2抗体・p24抗原(定量、HIV-1+2抗体)",
+      "concept": [
+        {
+          "code": "5F560155002305353",
+          "display": "HIV-1+2抗体・p24抗原(定量、HIV-1+2抗体)"
+        },
+        {
+          "code": "5F560155002399853",
+          "display": "HIV-1+2抗体・p24抗原(定量、HIV-1+2抗体)"
+        },
+        {
+          "code": "5F560155002399953",
+          "display": "HIV-1+2抗体・p24抗原(定量、HIV-1+2抗体)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-P24-RESULT",
+      "display": "HIV-1+2抗体・p24抗原(判定)",
+      "concept": [
+        {
+          "code": "5F560155002302311",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        },
+        {
+          "code": "5F560155002305111",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        },
+        {
+          "code": "5F560155002305211",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        },
+        {
+          "code": "5F560155002305311",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        },
+        {
+          "code": "5F560155002305351",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        },
+        {
+          "code": "5F560155002399851",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        },
+        {
+          "code": "5F560155002399951",
+          "display": "HIV-1+2抗体・p24抗原(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-P24-POS-COI",
+      "display": "HIV-1+2抗体・p24抗原(陽性コントロール比)",
+      "concept": [
+        {
+          "code": "5F560155002302333",
+          "display": "HIV-1+2抗体・p24抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F560155002305133",
+          "display": "HIV-1+2抗体・p24抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F560155002305233",
+          "display": "HIV-1+2抗体・p24抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F560155002399833",
+          "display": "HIV-1+2抗体・p24抗原(陽性コントロール比)"
+        },
+        {
+          "code": "5F560155002399933",
+          "display": "HIV-1+2抗体・p24抗原(陽性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-COI",
+      "display": "HIV-1+2抗体(コントロール比)",
+      "concept": [
+        {
+          "code": "5F560143002305131",
+          "display": "HIV-1+2抗体(コントロール比)"
+        },
+        {
+          "code": "5F560143002305231",
+          "display": "HIV-1+2抗体(コントロール比)"
+        },
+        {
+          "code": "5F560143002306331",
+          "display": "HIV-1+2抗体(コントロール比)"
+        },
+        {
+          "code": "5F560143002399831",
+          "display": "HIV-1+2抗体(コントロール比)"
+        },
+        {
+          "code": "5F560143002399931",
+          "display": "HIV-1+2抗体(コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-DIL",
+      "display": "HIV-1+2抗体(希釈倍率)",
+      "concept": [
+        {
+          "code": "5F560143002311705",
+          "display": "HIV-1+2抗体(希釈倍率)"
+        },
+        {
+          "code": "5F560143002399805",
+          "display": "HIV-1+2抗体(希釈倍率)"
+        },
+        {
+          "code": "5F560143002399905",
+          "display": "HIV-1+2抗体(希釈倍率)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-RESULT",
+      "display": "HIV-1+2抗体(判定)",
+      "concept": [
+        {
+          "code": "5F560143002305111",
+          "display": "HIV-1+2抗体(判定)"
+        },
+        {
+          "code": "5F560143002305211",
+          "display": "HIV-1+2抗体(判定)"
+        },
+        {
+          "code": "5F560143002306311",
+          "display": "HIV-1+2抗体(判定)"
+        },
+        {
+          "code": "5F560143002311711",
+          "display": "HIV-1+2抗体(判定)"
+        },
+        {
+          "code": "5F560143002319011",
+          "display": "HIV-1+2抗体(判定)"
+        },
+        {
+          "code": "5F560143002399811",
+          "display": "HIV-1+2抗体(判定)"
+        },
+        {
+          "code": "5F560143002399911",
+          "display": "HIV-1+2抗体(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1P2-AB-POS-COI",
+      "display": "HIV-1+2抗体(陽性コントロール比)",
+      "concept": [
+        {
+          "code": "5F560143002305233",
+          "display": "HIV-1+2抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F560143002399833",
+          "display": "HIV-1+2抗体(陽性コントロール比)"
+        },
+        {
+          "code": "5F560143002399933",
+          "display": "HIV-1+2抗体(陽性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1-AB-DIL",
+      "display": "HIV-1抗体(希釈倍率)",
+      "concept": [
+        {
+          "code": "5F500143002311705",
+          "display": "HIV-1抗体(希釈倍率)"
+        },
+        {
+          "code": "5F500143002399805",
+          "display": "HIV-1抗体(希釈倍率)"
+        },
+        {
+          "code": "5F500143002399905",
+          "display": "HIV-1抗体(希釈倍率)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-1-AB-RESULT",
+      "display": "HIV-1抗体(判定)",
+      "concept": [
+        {
+          "code": "5F500143002311711",
+          "display": "HIV-1抗体(判定)"
+        },
+        {
+          "code": "5F500143002399811",
+          "display": "HIV-1抗体(判定)"
+        },
+        {
+          "code": "5F500143002399911",
+          "display": "HIV-1抗体(判定)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-2-AB-DIL",
+      "display": "HIV-2抗体(希釈倍率)",
+      "concept": [
+        {
+          "code": "5F550143002311705",
+          "display": "HIV-2抗体(希釈倍率)"
+        },
+        {
+          "code": "5F550143002399805",
+          "display": "HIV-2抗体(希釈倍率)"
+        },
+        {
+          "code": "5F550143002399905",
+          "display": "HIV-2抗体(希釈倍率)"
+        }
+      ]
+    },
+    {
+      "code": "HIV-2-AB-RESULT",
+      "display": "HIV-2抗体(判定)",
+      "concept": [
+        {
+          "code": "5F550143002311711",
+          "display": "HIV-2抗体(判定)"
+        }
+      ]
+    },
+    {
+      "code": "STS-QLRESULT",
+      "display": "梅毒STS(定性)",
+      "concept": [
+        {
+          "code": "5E074135102311711",
+          "display": "梅毒STS(定性)"
+        },
+        {
+          "code": "5E074135102399811",
+          "display": "梅毒STS(定性)"
+        },
+        {
+          "code": "5E074135102399911",
+          "display": "梅毒STS(定性)"
+        }
+      ]
+    },
+    {
+      "code": "STS-QUANT",
+      "display": "梅毒STS(定量)",
+      "concept": [
+        {
+          "code": "5E074135202306201",
+          "display": "梅毒STS(定量)"
+        },
+        {
+          "code": "5E074135202306301",
+          "display": "梅毒STS(定量)"
+        },
+        {
+          "code": "5E074135202399801",
+          "display": "梅毒STS(定量)"
+        },
+        {
+          "code": "5E074135202399901",
+          "display": "梅毒STS(定量)"
+        }
+      ]
+    },
+    {
+      "code": "STS-RESULT",
+      "display": "梅毒STS(判定)",
+      "concept": [
+        {
+          "code": "5E074135202306211",
+          "display": "梅毒STS(判定)"
+        },
+        {
+          "code": "5E074135202306311",
+          "display": "梅毒STS(判定)"
+        },
+        {
+          "code": "5E074135202399811",
+          "display": "梅毒STS(判定)"
+        },
+        {
+          "code": "5E074135202399911",
+          "display": "梅毒STS(判定)"
+        }
+      ]
+    },
+    {
+      "code": "STS-HQUANT",
+      "display": "梅毒STS(半定量)",
+      "concept": [
+        {
+          "code": "5E074135302311705",
+          "display": "梅毒STS(半定量)"
+        },
+        {
+          "code": "5E074135302399805",
+          "display": "梅毒STS(半定量)"
+        },
+        {
+          "code": "5E074135302399905",
+          "display": "梅毒STS(半定量)"
+        }
+      ]
+    },
+    {
+      "code": "TP-RESULT",
+      "display": "梅毒TP抗体(定性)",
+      "concept": [
+        {
+          "code": "5E075135101819011",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135101899811",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135101899911",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135102310311",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135102311711",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135102319011",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135102399811",
+          "display": "梅毒TP抗体(定性)"
+        },
+        {
+          "code": "5E075135102399911",
+          "display": "梅毒TP抗体(定性)"
+        }
+      ]
+    },
+    {
+      "code": "TP-QUANT-COI",
+      "display": "梅毒TP抗体(定量、コントロール比)",
+      "concept": [
+        {
+          "code": "5E075135202305331",
+          "display": "梅毒TP抗体(定量、コントロール比)"
+        },
+        {
+          "code": "5E075135202399831",
+          "display": "梅毒TP抗体(定量、コントロール比)"
+        },
+        {
+          "code": "5E075135202399931",
+          "display": "梅毒TP抗体(定量、コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "TP-NEG-COI",
+      "display": "梅毒TP抗体(定量、陰性コントロール比)",
+      "concept": [
+        {
+          "code": "5E075135202302332",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        },
+        {
+          "code": "5E075135202304132",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        },
+        {
+          "code": "5E075135202305132",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        },
+        {
+          "code": "5E075135202305232",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        },
+        {
+          "code": "5E075135202306232",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        },
+        {
+          "code": "5E075135202399832",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        },
+        {
+          "code": "5E075135202399932",
+          "display": "梅毒TP抗体(定量、陰性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "TP-QUANT-RESULT",
+      "display": "梅毒TP抗体(定量、判定)",
+      "concept": [
+        {
+          "code": "5E075135202302311",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202304111",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202305111",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202305211",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202305311",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202306211",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202306311",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202399811",
+          "display": "梅毒TP抗体(定量、判定)"
+        },
+        {
+          "code": "5E075135202399911",
+          "display": "梅毒TP抗体(定量、判定)"
+        }
+      ]
+    },
+    {
+      "code": "TP-POS-COI",
+      "display": "梅毒TP抗体(定量、陽性コントロール比)",
+      "concept": [
+        {
+          "code": "5E075135202305133",
+          "display": "梅毒TP抗体(定量、陽性コントロール比)"
+        },
+        {
+          "code": "5E075135202305233",
+          "display": "梅毒TP抗体(定量、陽性コントロール比)"
+        },
+        {
+          "code": "5E075135202399833",
+          "display": "梅毒TP抗体(定量、陽性コントロール比)"
+        },
+        {
+          "code": "5E075135202399933",
+          "display": "梅毒TP抗体(定量、陽性コントロール比)"
+        }
+      ]
+    },
+    {
+      "code": "TP-QUANT",
+      "display": "梅毒TP抗体(定量)",
+      "concept": [
+        {
+          "code": "5E075135202306201",
+          "display": "梅毒TP抗体(定量)"
+        },
+        {
+          "code": "5E075135202306301",
+          "display": "梅毒TP抗体(定量)"
+        },
+        {
+          "code": "5E075135202399801",
+          "display": "梅毒TP抗体(定量)"
+        },
+        {
+          "code": "5E075135202399901",
+          "display": "梅毒TP抗体(定量)"
+        }
+      ]
+    },
+    {
+      "code": "TP-HQUANT",
+      "display": "梅毒TP抗体(半定量)",
+      "concept": [
+        {
+          "code": "5E075135302310305",
+          "display": "梅毒TP抗体(半定量)"
+        },
+        {
+          "code": "5E075135302311705",
+          "display": "梅毒TP抗体(半定量)"
+        },
+        {
+          "code": "5E075135302399805",
+          "display": "梅毒TP抗体(半定量)"
+        },
+        {
+          "code": "5E075135302399905",
+          "display": "梅毒TP抗体(半定量)"
+        }
+      ]
+    },
+    {
+      "code": "STS",
+      "display": "梅毒反応",
+      "concept": [
+        {
+          "code": "5E071000002399811",
+          "display": "梅毒反応"
+        },
+        {
+          "code": "5E071000002399911",
+          "display": "梅毒反応"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-11-03T00:45:56.836+09:00"
+  },
+  "caseSensitive": true,
+  "experimental": false,
+  "copyright": "Copyright MHLW and Japanese Society of Laboratory Medicine. All Rights Reserved.",
+  "hierarchyMeaning": "grouped-by",
+  "count": 308
+}

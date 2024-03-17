@@ -1,0 +1,133 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-condition-disease-prefix-modifier",
+  "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Condition_DiseasePrefixModifier",
+  "name": "JP_Condition_DiseasePrefixModifier_eCS",
+  "title": "JP Core Disease Prefix Modifier Extension",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "病名の前置修飾語を格納するための拡張",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Condition.code"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "前置修飾語",
+        "definition": "前置修飾語を格納するための拡張。\r\n前置修飾語をCodeableConcept型で記述する。"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Condition_DiseasePrefixModifier"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "short": "前置修飾語",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Extension.value[x].coding",
+        "path": "Extension.value[x].coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open",
+          "ordered": false
+        }
+      },
+      {
+        "id": "Extension.value[x].coding:medisExchange",
+        "path": "Extension.value[x].coding",
+        "sliceName": "medisExchange",
+        "short": "MEDIS ICD10対応標準病名マスター(修飾語交換用コード) 。【詳細参照】",
+        "definition": "MEDIS ICD10対応標準病名マスターの修飾語交換用コード ",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.value[x].coding:medisExchange.system",
+        "path": "Extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.201.5"
+      },
+      {
+        "id": "Extension.value[x].coding:medisExchange.code",
+        "path": "Extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].coding:medisRecordNo",
+        "path": "Extension.value[x].coding",
+        "sliceName": "medisRecordNo",
+        "short": "MEDIS ICD10対応標準病名マスター(修飾語管理番号) 。【詳細参照】",
+        "definition": "MEDIS ICD10対応標準病名マスターの修飾語管理番号 ",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.value[x].coding:medisRecordNo.system",
+        "path": "Extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.201.2"
+      },
+      {
+        "id": "Extension.value[x].coding:medisRecordNo.code",
+        "path": "Extension.value[x].coding.code",
+        "min": 1
+      },
+      {
+        "id": "Extension.value[x].coding:receipt",
+        "path": "Extension.value[x].coding",
+        "sliceName": "receipt",
+        "short": "レセプト電算用修飾語マスター。【詳細参照】",
+        "definition": "レセプト電算システムで定義されている修飾語コード。",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.value[x].coding:receipt.system",
+        "path": "Extension.value[x].coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/masterZ-disease-modifier"
+      },
+      {
+        "id": "Extension.value[x].coding:receipt.code",
+        "path": "Extension.value[x].coding.code",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "resourceType": "Patient",
+  "id": "jppatientExample01",
+  "meta": {
+    "lastUpdated": "2021-11-26T10:00:00+09:00",
+    "profile": [
+      "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Patient_eCS"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:oid:1.2.392.200119.6.102.11234567890",
+      "value": "12345"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+          "valueCode": "IDE"
+        }
+      ],
+      "use": "official",
+      "text": "田中 太郎",
+      "family": "田中",
+      "given": [
+        "太郎"
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+          "valueCode": "SYL"
+        }
+      ],
+      "use": "official",
+      "text": "タナカ タロウ",
+      "family": "タナカ",
+      "given": [
+        "タロウ"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "03-1234-5678",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1955-05-04",
+  "address": [
+    {
+      "text": "神奈川県横浜市港区１－２－３",
+      "postalCode": "123-4567",
+      "country": "JP"
+    }
+  ]
+}

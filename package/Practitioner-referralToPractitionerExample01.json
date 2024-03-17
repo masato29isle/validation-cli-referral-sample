@@ -1,0 +1,40 @@
+{
+  "resourceType": "Practitioner",
+  "id": "referralToPractitionerExample01",
+  "meta": {
+    "lastUpdated": "2021-11-26T10:00:00+09:00",
+    "profile": [
+      "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Practitioner_eCS"
+    ]
+  },
+  "name": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+          "valueCode": "IDE"
+        }
+      ],
+      "use": "official",
+      "text": "野口 英世丸",
+      "family": "野口",
+      "given": [
+        "英世丸"
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+          "valueCode": "SYL"
+        }
+      ],
+      "use": "official",
+      "text": "ノグチ ヒデヨマル",
+      "family": "ノグチ",
+      "given": [
+        "ヒデヨマル"
+      ]
+    }
+  ]
+}

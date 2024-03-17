@@ -1,0 +1,467 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Coverage-eCS-insurance",
+  "url": "http://jpfhir.jp/fhir/ePrescription/StructureDefinition/JP_Coverage_eCS_insurance",
+  "name": "JP_Coverage_eCS_insurance",
+  "status": "draft",
+  "description": "保険情報　Coverageリソースプロファイル　JP_Coverageの派生プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "cdanetv4",
+      "uri": "http://www.cda-adc.ca/en/services/cdanet/",
+      "name": "Canadian Dental Association eclaims standard"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "cpha3pharm",
+      "uri": "http://www.pharmacists.ca/",
+      "name": "Canadian Pharmacy Associaiton eclaims standard"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Coverage",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Coverage",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Coverage.contained",
+        "path": "Coverage.contained",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.extension:insuredPersonSymbol",
+        "path": "Coverage.extension",
+        "sliceName": "insuredPersonSymbol",
+        "short": "被保険者証記号情報",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonSymbol.url",
+        "path": "Coverage.extension.url",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonSymbol.value[x]",
+        "path": "Coverage.extension.value[x]",
+        "short": "被保険者証記号",
+        "definition": "被保険者証記号。記録形式は「オンライン又は光ディスク等による請求に係る記録条件仕様（医科用）」に従う。\r\n被保険者証（手帳）等の記号。英数又は漢字、最大３８ バイト。１ 健康保険被保険者証、船員保険被保険者証、受給資格者票及び国民健康保険被保険者証等の「記号及び番号」欄の記号を記録する。英数モードと漢字モードの文字を混在して記録しない。番号のみ設定されている場合は、記録を省略する。記号と番号を合せた文字数の上限は、モードごとに次のとおりとする。英数１９バイト、漢字１９バイト。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonNumber",
+        "path": "Coverage.extension",
+        "sliceName": "insuredPersonNumber",
+        "short": "被保険者証番号情報",
+        "definition": "被保険者証番号を表す拡張「insuredPersonNumber」。\r\n保険種別が「1：医保」、「2：国保」、「7：後期高齢者」の場合に記録する。\r\nそれ以外の場合は、本拡張要素自体出現しない。",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonNumber.url",
+        "path": "Coverage.extension.url",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonNumber.value[x]",
+        "path": "Coverage.extension.value[x]",
+        "short": "被保険者証番号",
+        "definition": "被保険者証番号。記録形式は「オンライン又は光ディスク等による請求に係る記録条件仕様（医科用）」に従う。\r\n被保険者証（手帳）等の番号。最大バイト数３８，英数モードまたは漢字モード。１ 健康保険被保険者証、船員保険被保険者証、受給資格者票及び国民健康保険被保険者証等の「記号及び番号」欄の番号を記録する。後期高齢者被保険者証の被保険者番号を記録する。英数モードと漢字モードの文字を混在して記\r\n録しない。バイト数の上限については被保険者記号の説明を参照のこと。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonSubNumber",
+        "path": "Coverage.extension",
+        "sliceName": "insuredPersonSubNumber",
+        "short": "被保険者証等「枝番」情報",
+        "definition": "被保険者証等に「枝番」が記載されていない場合は、記録を省略しても差し支えない。保険者が後期高齢者医療である場合又は負担者種別が公費負担医療であ場合は、記録を省略する。",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonSubNumber.url",
+        "path": "Coverage.extension.url",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.extension:insuredPersonSubNumber.value[x]",
+        "path": "Coverage.extension.value[x]",
+        "short": "個人単位被保険者番号（枝番）",
+        "definition": "被保険者証記号・番号に対する個人単位被保険者番号（枝番）。「オンライン又は光ディスク等による請求に係る記録条件仕様（医科用）」に従い、桁数が2桁に満たない場合は、先頭に\"0\"を記録し2桁で記録する。\r\n最大２バイトで数字半角文字。\r\n電子資格確認を行った場合は、資格確認時にオンライン資格確認等システムから通知した枝番を記録する。健康保険被保険者証、受給資格者票及び国民健康保険被保険者証等による資格確認を行った場合は、当該証の「枝番」欄の番号を記録する。\r\n 「枝番」が２桁に満たない場合は、先頭に“0”を記録し、２桁で記録する。\r\n被保険者証等に「枝番」が記載されていない場合は、記録を省略しても差し支えない。保険者が後期高齢者医療である場合又は負担者種別が公費負担医療であ場合は、記録を省略する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.status",
+        "path": "Coverage.status",
+        "short": "リソースインスタンスのステータス",
+        "definition": "リソースインスタンスのステータス。固定値active。真に有効な保険かどうかは意味しない。",
+        "fixedCode": "active"
+      },
+      {
+        "id": "Coverage.type",
+        "path": "Coverage.type",
+        "short": "保険種別コード",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/Common/ValueSet/mhlw-ePreCDA-insuranceCategory"
+        }
+      },
+      {
+        "id": "Coverage.type.coding",
+        "path": "Coverage.type.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.type.coding.system",
+        "path": "Coverage.type.coding.system",
+        "short": "保険種別コード体系を識別するURI",
+        "definition": "保険種別コード　厚生労働省電子処方箋等の CDA 記述仕様第１版　別表１１のOID",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.100495.20.2.61",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.type.coding.code",
+        "path": "Coverage.type.coding.code",
+        "short": "保険種別コード",
+        "definition": "保険種別コード　厚生労働省電子処方箋等の医療 CDA 記述仕様第１版　別表１１のコード表に従う。8以外を使用する。\r\n1 医保\r2 国保\r3 労災\r4 自賠責\r5 公害\r6 自費\r7 後期高齢者\r8 公費",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.type.coding.userSelected",
+        "path": "Coverage.type.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.type.text",
+        "path": "Coverage.type.text",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.policyHolder",
+        "path": "Coverage.policyHolder",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.subscriber",
+        "path": "Coverage.subscriber",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.subscriberId",
+        "path": "Coverage.subscriberId",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.beneficiary",
+        "path": "Coverage.beneficiary",
+        "short": "被給付者情報",
+        "definition": "この保険で給付される患者情報（Patientリソース）へのリテラル参照",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.beneficiary.reference",
+        "path": "Coverage.beneficiary.reference",
+        "short": "PatientリソースのfullUrl要素に指定されるUUIDを指定",
+        "definition": "Budleリソースに記述されるPatientリソースのfullUrl要素に指定されるUUIDを指定",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.dependent",
+        "path": "Coverage.dependent",
+        "short": "被保険者番号（枝番）",
+        "definition": "被保険者証記号・番号に対する個人単位被保険者番号（枝番）。\r\n被保険者番号の枝番を記述する拡張要素と同一の値を記述すること。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.relationship",
+        "path": "Coverage.relationship",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.relationship.coding",
+        "path": "Coverage.relationship.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.relationship.coding.system",
+        "path": "Coverage.relationship.coding.system",
+        "short": "コード体系を識別するURI",
+        "definition": "被保険者区分コードのコード体系を識別するURI。厚生労働省電子処方箋等の医療文書 CDA 記述仕様第１版　別表１２のOID",
+        "fixedUri": "urn:oid:1.2.392.100495.20.2.62",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.relationship.coding.code",
+        "path": "Coverage.relationship.coding.code",
+        "short": "被保険者区分コード",
+        "definition": "被保険者区分コード。厚生労働省電子処方箋 CDA 記述仕様第１版　別表１２に従う。\r\n1 被保険者\r2 被扶養者",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.relationship.coding.display",
+        "path": "Coverage.relationship.coding.display",
+        "short": "コードに対応する表示文字列",
+        "definition": "以下の文字列のいずれかを設定するが、省略可能。\r\nコード1　文字列： \"被保険者\"\rコード2 　文字列：\"被扶養者\"",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.relationship.coding.userSelected",
+        "path": "Coverage.relationship.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.relationship.text",
+        "path": "Coverage.relationship.text",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.period",
+        "path": "Coverage.period",
+        "short": "保険証の有効期間",
+        "definition": "保険証の有効期間。保険証に明示的に記載がある場合、かつ、医療機関がその情報を把握している場合のみ記録する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.period.start",
+        "path": "Coverage.period.start",
+        "short": "保険証の有効期間の開始日",
+        "definition": "保険証の有効期間の開始日。資格取得日。ISO8601に準拠してyyyy_mm_dd形式で指定する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.period.end",
+        "path": "Coverage.period.end",
+        "short": "保険証の有効期間の終了日",
+        "definition": "保険証の有効期間の終了日。資格喪失日。ISO8601に準拠してyyyy_mm_dd形式で指定する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.payor",
+        "path": "Coverage.payor",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.payor:insurer",
+        "path": "Coverage.payor",
+        "sliceName": "insurer",
+        "short": "保険者情報",
+        "definition": "保険者を表すOrganizationリソースへの参照",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/ePrescription/StructureDefinition/JP_Organization_eCS_coveragePayer"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.payor:insurer.reference",
+        "path": "Coverage.payor.reference",
+        "short": "OrganizationリソースのfullUrl要素に指定されるUUIDを指定",
+        "definition": "Bundleリソースに記述される保険者を表すOrganizationリソースのfullUrl要素に指定されるUUIDを指定。\r\n自費以外の場合に使用する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.payor:selfPayment",
+        "path": "Coverage.payor",
+        "sliceName": "selfPayment",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Patient_eCS"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.payor:selfPayment.reference",
+        "path": "Coverage.payor.reference",
+        "short": "PatientリソースのfullUrl要素に指定されるUUIDを指定",
+        "definition": "Bundleリソースに記述される受給者本人（患者）を表すPatientリソースのfullUrl要素に指定されるUUIDを指定。\r\n自費の場合に使用する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.class",
+        "path": "Coverage.class",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.order",
+        "path": "Coverage.order",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.network",
+        "path": "Coverage.network",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.costToBeneficiary",
+        "path": "Coverage.costToBeneficiary",
+        "short": "自己負担率",
+        "definition": "自己負担率。記録が可能な場合にのみ記録する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.type",
+        "path": "Coverage.costToBeneficiary.type",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.type.coding",
+        "path": "Coverage.costToBeneficiary.type.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.type.coding.system",
+        "path": "Coverage.costToBeneficiary.type.coding.system",
+        "short": "自己負担の種別を識別するコードのコード体系を識別するURI",
+        "definition": "自己負担の種別を識別するコードのコード体系を識別するURI。固定値。",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/coverage-copay-type",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.type.coding.code",
+        "path": "Coverage.costToBeneficiary.type.coding.code",
+        "short": "自己負担率を表すコード",
+        "definition": "固定値　copaypct",
+        "min": 1,
+        "fixedCode": "copaypct",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.type.coding.display",
+        "path": "Coverage.costToBeneficiary.type.coding.display",
+        "short": "コードの表示名",
+        "fixedString": "負担率",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.type.text",
+        "path": "Coverage.costToBeneficiary.type.text",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.costToBeneficiary.value[x]",
+        "path": "Coverage.costToBeneficiary.value[x]",
+        "short": "自己負担割合",
+        "definition": "自己負担割合",
+        "type": [
+          {
+            "code": "Quantity",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/SimpleQuantity"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.value[x].value",
+        "path": "Coverage.costToBeneficiary.value[x].value",
+        "short": "自己負担割合",
+        "definition": "自己負担割合を%で指定する。\r\n例）数値で　 10",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.value[x].unit",
+        "path": "Coverage.costToBeneficiary.value[x].unit",
+        "short": "単位",
+        "definition": "人が解釈可能な単位文字列。固定値",
+        "min": 1,
+        "fixedString": "%",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.value[x].system",
+        "path": "Coverage.costToBeneficiary.value[x].system",
+        "short": "単位コード",
+        "definition": "UCUMを識別するURI。",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.value[x].code",
+        "path": "Coverage.costToBeneficiary.value[x].code",
+        "short": "パーセントを表すUCUMコード",
+        "definition": "固定値",
+        "min": 1,
+        "fixedCode": "%",
+        "mustSupport": true
+      },
+      {
+        "id": "Coverage.costToBeneficiary.exception",
+        "path": "Coverage.costToBeneficiary.exception",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.subrogation",
+        "path": "Coverage.subrogation",
+        "max": "0"
+      },
+      {
+        "id": "Coverage.contract",
+        "path": "Coverage.contract",
+        "max": "0"
+      }
+    ]
+  }
+}

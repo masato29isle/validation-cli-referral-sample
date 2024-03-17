@@ -1,0 +1,3525 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Observation-LabResult-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Observation_LabResult_eCS",
+  "name": "JP_Observation_LabResult_eCS",
+  "title": "eCS:JP_Observation_LabResult_eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "eCS 診療情報・サマリー汎用 Observationリソース（検体検査結果／感染症検体検査結果）プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "sct-concept",
+      "uri": "http://snomed.info/conceptdomain",
+      "name": "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "sct-attr",
+      "uri": "http://snomed.org/attributebinding",
+      "name": "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Observation_LabResult",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation",
+        "short": "診療情報における検体検査結果／感染症検体検査結果の格納に使用する",
+        "definition": "診療情報における検体検査結果／感染症検体検査結果の格納に使用する",
+        "comment": "このプロファイルは、電子カルテ情報共有サービスに送信するために適合したプロファイルではない。電子カルテ情報共有サービスに送信する場合には、このプロファイルから派生した別の専用プロファイルを用いること。"
+      },
+      {
+        "id": "Observation.meta",
+        "path": "Observation.meta",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.meta.versionId",
+        "path": "Observation.meta.versionId",
+        "short": "バージョン固有の識別子",
+        "definition": "バージョン固有の識別子"
+      },
+      {
+        "id": "Observation.meta.lastUpdated",
+        "path": "Observation.meta.lastUpdated",
+        "short": "このリソースのデータが最後に作成、更新、複写された日時。最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz　例:2015-02-07T13:28:17.239+09:00",
+        "definition": "このリソースのデータが最後に作成、更新、複写された日時。最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz　例:2015-02-07T13:28:17.239+09:00",
+        "comment": "この要素は、このリソースのデータを取り込んで蓄積していたシステムが、このリソースになんらかの変更があった可能性があった日時を取得し、このデータを再取り込みする必要性の判断をするために使われる。本要素に前回取り込んだ時点より後の日時が設定されている場合には、なんらかの変更があった可能性がある（変更がない場合もある）ものとして判断される。したがって、内容になんらかの変更があった場合、またはこのリソースのデータが初めて作成された場合には、その時点以降の日時（たとえば、このリソースのデータを作成した日時）を設定しなければならない。内容の変更がない場合でも、このリソースのデータが作り直された場合や単に複写された場合にその日時を設定しなおしてもよい。ただし、内容に変更がないのであれば、日時を変更しなくてもよい。また、この要素の変更とmeta.versionIdの変更とは、必ずしも連動しないことがある。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.meta.profile",
+        "path": "Observation.meta.profile",
+        "short": "準拠しているプロファイルを受信側に通知したい場合には、本文書のプロファイルを識別するURLを指定する。http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Observation_LabResult_eCS　を設定する。電子カルテ情報共有サービスに本リソースデータを送信する場合には、別に定義されるURLを設定すること。",
+        "definition": "準拠しているプロファイルを受信側に通知したい場合には、本文書のプロファイルを識別するURLを指定する。http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Observation_LabResult_eCS　を設定する。電子カルテ情報共有サービスに本リソースデータを送信する場合には、別に定義されるURLを設定すること。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.meta.tag",
+        "path": "Observation.meta.tag",
+        "short": "電子カルテ情報共有サービスでは、長期保存フラグの設定する場合に使用する。詳細はJP_Observation_LabResult_CLINS_eCSを参照のこと。",
+        "definition": "電子カルテ情報共有サービスでは、長期保存フラグの設定する場合に使用する。詳細はJP_Observation_LabResult_CLINS_eCSを参照のこと。"
+      },
+      {
+        "id": "Observation.contained",
+        "path": "Observation.contained",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.contained:encounter",
+        "path": "Observation.contained",
+        "sliceName": "encounter",
+        "short": "検体検査を実施（検体を採取）したときの入院外来受診情報をコンパクトに格納したEncounterリソース",
+        "definition": "検体検査を実施（検体を採取）したときの入院外来受診情報をコンパクトに格納したEncounterリソース",
+        "comment": "encounter要素から参照される場合には、そのJP_Encounterリソースの実体。JP_Encounterリソースにおける必要最小限の要素だけが含まれればよい。ここで埋め込まれるJP_Encounterリソースでは、Encounter.classにこの情報を記録したときの受診情報（入外区分など）を記述して使用する。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Encounter",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.contained:specimen",
+        "path": "Observation.contained",
+        "sliceName": "specimen",
+        "short": "検体材料情報をコンパクトに格納したSpecimenリソース",
+        "definition": "検体材料情報をコンパクトに格納したSpecimenリソース",
+        "comment": "specimen要素から参照される場合には、そのJP_Organizationリソースの実体。JP_Organizationリソースにおける必要最小限の要素だけが含まれればよい。specimen要素ではContainedリソースを参照する方法ではなくspecimen要素に検体材料名だけを記述することもできるので、その場合にはこのContainedリソースは不要。\n  ",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Specimen",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Specimen"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.contained:order",
+        "path": "Observation.contained",
+        "sliceName": "order",
+        "short": "診療情報におけるオーダ識別番号情報などをコンパクトに格納したServiceRequestリソース",
+        "definition": "診療情報におけるオーダ識別番号情報などをコンパクトに格納したServiceRequestリソース",
+        "comment": "basedOn要素から参照される場合には、そのJP_ServiceRequestリソースの実体。JP_ServiceRequestリソースにおける必要最小限の要素だけが含まれればよい。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "ServiceRequest",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_ServiceRequest"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.extension:eCS_InstitutionNumber",
+        "path": "Observation.extension",
+        "sliceName": "eCS_InstitutionNumber",
+        "short": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。\n本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "definition": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。\n本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "comment": "電子カルテ情報サービスでは、この拡張による記述は必須。医療機関１０桁番号を示すsystem値は\"http://jpfhir.jp/fhir/core/IdSystem/insurance-medical-institution-no\"を使用する。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/clins/Extension/StructureDefinition/JP_eCS_InstitutionNumber"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.extension:eCS_Department",
+        "path": "Observation.extension",
+        "sliceName": "eCS_Department",
+        "short": "本情報を作成発行した診療科または作成発行者の診療科情報を記述するために使用する拡張「eCS_Department」",
+        "definition": "本情報を作成発行した診療科または作成発行者の診療科情報を記述するために使用する拡張「eCS_Department」",
+        "comment": "コード化する場合には、JAMI(SS-MIX2) 診療科コード表のsystem値\"http://jami.jp/SS-MIX2/CodeSystem/ClinicalDepartment\"を使用する。診療科を記述する場合には、そのコード化の有無に関わらずtext要素による記述は必須。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.identifier",
+        "path": "Observation.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "このリソース情報の識別ID。",
+        "definition": "このリソース情報の識別ID。",
+        "comment": "リソース一意識別IDの仕様は、「診療情報・サマリー汎用リソース一意識別ID仕様」を参照のこと。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.identifier:resourceIdentifier",
+        "path": "Observation.identifier",
+        "sliceName": "resourceIdentifier",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.identifier:resourceIdentifier.system",
+        "path": "Observation.identifier.system",
+        "comment": "リソース一意識別IDのsystem値は\"http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier\"　を設定する。",
+        "min": 1,
+        "patternUri": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier"
+      },
+      {
+        "id": "Observation.identifier:resourceIdentifier.value",
+        "path": "Observation.identifier.value",
+        "short": "「リソース一意識別ID」の文字列。URI形式を使う場合には、urn:ietf:rfc:3986に準拠すること。",
+        "definition": "「リソース一意識別ID」の文字列。URI形式を使う場合には、urn:ietf:rfc:3986に準拠すること。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.basedOn",
+        "path": "Observation.basedOn",
+        "comment": "元のオーダID情報や依頼者情報は必要ならここで記述する。",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_ServiceRequest"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "definition": "検査結果値の状態。",
+        "comment": "preliminary:暫定報告（このあとで本報告が予定される場合）、final:確定報告（このあと修正されることはもちろん事情によってはありうるが、この報告段階では確定結果として報告されている、corrected:final報告を修正した（新しい結果が有効である）のどちらかを使用する。例外的に、cancelled: この結果や検査実施が取り消されたので報告は取り消された（報告済みの以前の結果は無効である、間違っていたかもしれない）も使用でき、他にもも　http://hl7.org/fhir/observation-status　から選択可能であるが、意味的に紛らわしいので使わない。【SS-MIX2】OUL^R22.OBX[*]-11 結果状態",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "short": "検査結果カテゴリーのコード。system=http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS code=\"laboratory\"",
+        "definition": "検査結果カテゴリーのコード。system=http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS code=\"laboratory\"",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "definition": "検査項目のコードと名称",
+        "comment": "JLAC10必須の項目と任意の項目がある。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            },
+            {
+              "type": "value",
+              "path": "display"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Observation.code.coding.display",
+        "path": "Observation.code.coding.display",
+        "short": "コード化された場合に、そのコード表におけるコードに対応する文字列",
+        "definition": "コード化された場合に、そのコード表におけるコードに対応する文字列",
+        "comment": "標準コードに対応する標準名称文字列が規定されていないことも多いため、この要素は省略できる。値が存在する場合に受信側がこの文字列をどのように使用するかについては特に定めない。ただし、3文書6情報を電子カルテ共有サービスに送信する場合には、「検体検査結果情報における検査項目のコーディング規則」を厳守する必要がある。"
+      },
+      {
+        "id": "Observation.code.coding:jlac10LaboCode",
+        "path": "Observation.code.coding",
+        "sliceName": "jlac10LaboCode",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/core/ValueSet/JP_ObservationLabResultCode_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:jlac10LaboCode.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.504"
+      },
+      {
+        "id": "Observation.code.coding:unCoded",
+        "path": "Observation.code.coding",
+        "sliceName": "unCoded",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:unCoded.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_Uncoded_CS"
+      },
+      {
+        "id": "Observation.code.coding:unCoded.code",
+        "path": "Observation.code.coding.code",
+        "fixedCode": "99999999999999999"
+      },
+      {
+        "id": "Observation.code.coding:unCoded.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "未標準化コード項目(JLAC)"
+      },
+      {
+        "id": "Observation.code.coding:localLaboCode",
+        "path": "Observation.code.coding",
+        "sliceName": "localLaboCode",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:localLaboCode.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_LocalCode_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/abo-bld",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/abo-bld",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/abo-bld.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/abo-bld.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_abo_bld_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/abo-bld.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "ABO-BLD"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alb",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/alb",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alb.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alb.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_alb_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alb.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "ALB"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/alp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_alp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "ALP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alt",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/alt",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alt.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alt.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_alt_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/alt.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "ALT"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/amy",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/amy",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/amy.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/amy.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_amy_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/amy.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "AMY"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/aptt",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/aptt",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/aptt.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/aptt.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_aptt_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/aptt.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "APTT"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ast",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ast",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ast.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ast.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ast_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ast.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "AST"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bnp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/bnp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bnp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bnp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_bnp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bnp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "BNP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bs",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/bs",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bs.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bs.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_bs_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bs.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "BS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bun",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/bun",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bun.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bun.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_bun_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/bun.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "BUN"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ca",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ca",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ca.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ca.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ca_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ca.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Ca"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/che",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/che",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/che.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/che.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_che_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/che.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "ChE"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ck",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ck",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ck.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ck.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ck_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ck.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "CK"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cl",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/cl",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cl.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cl.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_cl_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cl.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Cl"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cre",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/cre",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cre.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cre.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_cre_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cre.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Cre"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/crp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_crp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "CRP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp-class",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/crp-class",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp-class.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp-class.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_crp_class_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/crp-class.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "CRP-class"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cys-c",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/cys-c",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cys-c.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cys-c.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_cys_c_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/cys-c.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Cys-C"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/d-bil",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/d-bil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/d-bil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/d-bil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_d_bil_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/d-bil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "D-Bil"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/dd",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/dd",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/dd.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/dd.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_dd_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/dd.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "DD"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/fbs",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/fbs",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/fbs.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/fbs.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_fbs_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/fbs.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "FBS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ggt",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ggt",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ggt.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ggt.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ggt_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ggt.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "GGT"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hb",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/hb",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hb.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hb.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_hb_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hb.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Hb"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hba1c-ngsp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/hba1c-ngsp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hba1c-ngsp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hba1c-ngsp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_hba1c_ngsp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hba1c-ngsp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HbA1c-NGSP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hdl-c",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/hdl-c",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hdl-c.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hdl-c.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_hdl_c_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/hdl-c.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HDL-C"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/k",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/k",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/k.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/k.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_k_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/k.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "K"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ld",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ld",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ld.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ld.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ld_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ld.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "LD"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ldl-c",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ldl-c",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ldl-c.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ldl-c.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ldl_c_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ldl-c.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "LDL-C"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/na",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/na",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/na.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/na.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_na_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/na.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Na"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/nt-probnp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/nt-probnp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/nt-probnp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/nt-probnp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_nt_probnp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/nt-probnp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "NT-proBNP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/plt",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/plt",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/plt.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/plt.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_plt_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/plt.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "PLT"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-act",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/pt-act",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-act.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-act.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_pt_act_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-act.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "PT-act"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-inr",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/pt-inr",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-inr.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-inr.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_pt_inr_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-inr.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "PT-INR"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-ratio",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/pt-ratio",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-ratio.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-ratio.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_pt_ratio_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-ratio.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "PT-ratio"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-sec",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/pt-sec",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-sec.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-sec.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_pt_sec_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/pt-sec.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "PT-sec"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rbc",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/rbc",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rbc.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rbc.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_rbc_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rbc.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "RBC"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rh-bld",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/rh-bld",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rh-bld.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rh-bld.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_rh_bld_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/rh-bld.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "Rh-BLD"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-bil",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/t-bil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-bil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-bil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_t_bil_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-bil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "T-Bil"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-cho",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/t-cho",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-cho.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-cho.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_t_cho_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/t-cho.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "T-CHO"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tg",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/tg",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tg.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tg.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_tg_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tg.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "TG"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/tp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_tp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/tp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "TP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-ac",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-ac",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-ac.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-ac.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_ac_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-ac.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-ac"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-bld",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_bld_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-Bld"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-HalfQty",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-bld-HalfQty",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-HalfQty.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-HalfQty.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_bld_HalfQty_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-HalfQty.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-Bld-半定量"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-QLHalfQty",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-bld-QLHalfQty",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-QLHalfQty.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-QLHalfQty.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_bld_QLHalfQty_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-bld-QLHalfQty.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-Bld-定性半定量"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-glu",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_glu_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-Glu"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-HalfQty",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-glu-HalfQty",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-HalfQty.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-HalfQty.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_glu_HalfQty_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-HalfQty.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-Glu-定性半定量"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-QLHalfQty",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-glu-QLHalfQty",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-QLHalfQty.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-QLHalfQty.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_glu_QLHalfQty_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-glu-QLHalfQty.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-Glu-半定量"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-pc",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/u-pc",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-pc.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-pc.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_pc_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/u-pc.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-pc"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ua",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/ua",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ua.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ua.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_ua_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/ua.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "UA"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/utp",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_utp_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-TP"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-QLHalfQty",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/utp-QLHalfQty",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-QLHalfQty.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-QLHalfQty.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_utp_QLHalfQty_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-QLHalfQty.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-TP-定性半定量"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-HalfQty",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/utp-HalfQty",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-HalfQty.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-HalfQty.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_utp_HalfQty_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/utp-HalfQty.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "U-TP-半定量"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/wbc",
+        "path": "Observation.code.coding",
+        "sliceName": "coreLabo/wbc",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/wbc.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/wbc.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_wbc_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:coreLabo/wbc.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "WBC"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvcheck",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvcheck",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvcheck.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvcheck.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVCHECK_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvcheck.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "C型肝炎ウイルス検診の判定"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagsco",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagsco",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagsco.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagsco.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBSAGSCO_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagsco.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(S/CO)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsAGCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagdil",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagdil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagdil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagdil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsAGDIL_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagdil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(希釈倍率)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagod",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagod",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagod.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagod.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HbsAGOD_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagod.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(吸光度)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsAGQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsAGRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagposcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsagposcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagposcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagposcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsAGPOSCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsagposcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗原(陽性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsabcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsABCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗体(コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabnegcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsabnegcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabnegcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabnegcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsABNEGCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabnegcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗体(陰性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabdil",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsabdil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabdil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabdil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsABDIL_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabdil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗体(希釈倍率)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsabquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsABQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗体(定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hbsabresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HBsABRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hbsabresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HBs抗体(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV核酸増幅検査(定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV核酸増幅検査(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvagquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVAGQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV抗原検査(定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvagresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVAGRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvagresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV抗原検査(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvabcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVABCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV抗体(コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabdil",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvabdil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabdil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabdil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVABDIL_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabdil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV抗体(希釈倍率)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvabresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVABRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV抗体(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabposcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hcvabposcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabposcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabposcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HCVABPOSCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hcvabposcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HCV抗体(陽性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1quant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1quant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1quant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1quant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1QUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1quant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1(ウイルスRNA定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1result",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1result",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1result.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1result.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1RESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1result.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1(ウイルスRNA定量判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coiv",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abp24coiv",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coiv.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coiv.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABPOSCOIV_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coiv.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(コントロール値)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abp24coi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABP24COI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24coi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24negcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abp24negcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24negcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24negcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABP24NEGCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24negcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "IV-1+2抗体・p24抗原(陰性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abod",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abod",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abod.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abod.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABOD_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abod.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(吸光度)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2p24abresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2P24ABRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(定性、HIV p24抗原)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24qlresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abp24qlresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24qlresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24qlresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABP24QLRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24qlresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(定性、HIV-1+2抗体)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2p24abquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2P24ABQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2p24abquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(定量、HIV p24抗原)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(定量、HIV-1+2抗体)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24result",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abp24result",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24result.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24result.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABP24RESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24result.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24poscoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abp24poscoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24poscoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24poscoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABP24POSCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abp24poscoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体・p24抗原(陽性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体(コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abdil",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abdil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abdil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abdil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABDIL_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abdil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体(希釈倍率)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abposcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1p2abposcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abposcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abposcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABPOSCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1p2abposcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1+2抗体(陽性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abdil",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1abdil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abdil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abdil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1ABDIL_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abdil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1抗体(希釈倍率)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv1abresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1ABRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv1abresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-1抗体(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abdil",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv2abdil",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abdil.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abdil.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV2ABDIL_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abdil.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-2抗体(希釈倍率)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/hiv2abresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV2ABRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/hiv2abresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "HIV-2抗体(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsqlresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/stsqlresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsqlresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsqlresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_STSQLRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsqlresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒STS(定性)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/stsquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_STSQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒STS(定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/stsresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_STSRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stsresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒STS(判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stshquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/stshquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stshquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stshquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_STSHQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/stshquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒STS(半定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tpresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(定性)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tpquantcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPQUANTCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(定量、コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpnegcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tpnegcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpnegcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpnegcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPNEGCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpnegcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(定量、陰性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantresult",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tpquantresult",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantresult.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantresult.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPQUANTRESULT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquantresult.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(定量、判定)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpposcoi",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tpposcoi",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpposcoi.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpposcoi.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPPOSCOI_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpposcoi.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(定量、陽性コントロール比)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tpquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tpquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tphquant",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/tphquant",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tphquant.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tphquant.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_TPHQUANT_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/tphquant.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒TP抗体(半定量)"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/sts",
+        "path": "Observation.code.coding",
+        "sliceName": "infectionLabo/sts",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/sts.system",
+        "path": "Observation.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS"
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/sts.code",
+        "path": "Observation.code.coding.code",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_STS_VS"
+        }
+      },
+      {
+        "id": "Observation.code.coding:infectionLabo/sts.display",
+        "path": "Observation.code.coding.display",
+        "min": 1,
+        "fixedString": "梅毒反応"
+      },
+      {
+        "id": "Observation.code.text",
+        "path": "Observation.code.text",
+        "definition": "項目名。報告書などに記載する場合に使用する表示名。",
+        "comment": "【JP Core仕様】このプロファイルでは、表示名として必須とする。\r\n\r\n多くの場合、coding.display と同一になるが、coding.display に異なる複数の表現が格納される場合を想定し、code間で共通の表現として必須とする。受信側はこの文字列を項目表示文字列として使用できる。ただし、3文書6情報を電子カルテ共有サービスに送信する場合には、「検体検査結果情報における検査項目のコーディング規則」を厳守する必要がある。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "short": "患者のPatientリソース参照記述",
+        "definition": "対象となる患者のFHIRリソースへの参照。電子カルテ情報共有サービスでは、Bundleリソースで本リソースから参照可能なPatientリソースが同時に存在するので、そのPatientリソースに記述されている被保険者個人識別子や施設内患者IDなどの情報をidentifier要素でLogical Reference記述する。電子カルテ情報共有サービス以外の一般的な利用ではBundleリソースに含まれるPatientリソースのfullUrlを記述するか、またはContainedリソースをLiteral 参照する（comment参照のこと）。",
+        "comment": "ContainedリソースによりPatientリソースを本リソースの要素として記述した上で、そのリソースをLiteral 参照する方法(Patient.idを#で記述する)をとっても構わない。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.encounter",
+        "path": "Observation.encounter",
+        "short": "この検査が行われた受診情報（入外区分など）",
+        "definition": "この検査が行われた受診情報（入外区分など）を表すEncounterリソース（Containedリソース）への参照",
+        "comment": "Containedリソースに含まれるEncounterリソースをリソース内で参照する。【JP Core仕様】入院外来の区別や所在場所、担当診療科の情報、外来での検査か入院での検査かの区別に使用する。必須ではない。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "short": "検体採取日時",
+        "definition": "検体採取日時。検体採取日時が不明な場合には、検査実施日時、検体受付日時の場合もある。結果報告日時はissued要素を使用する。",
+        "comment": "dateTime型に限定する。dateTime側は、1905-08-23, 2015-02-07T13:28:17+09:00 ",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "short": "検査結果がシステムに格納された日時、システム的な結果報告（登録）日時",
+        "definition": "検査結果がシステムに格納された日時、システム的な結果報告（登録）日時。",
+        "comment": "instance型であるため、2015-02-07T13:28:17+09:00 のように時刻までの精度が必要である。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "short": "検体検査の結果",
+        "definition": "検体検査の結果",
+        "comment": "valueQuantity,valueCodeableConcept,valueStringのいずれかを使用する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.value[x]:valueQuantity",
+        "path": "Observation.value[x]",
+        "sliceName": "valueQuantity",
+        "short": "検査結果が「数値」の場合、値、単位を設定する。",
+        "comment": "",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]:valueCodeableConcept",
+        "path": "Observation.value[x]",
+        "sliceName": "valueCodeableConcept",
+        "short": "検査結果が「コード値」の場合、コード、テキスト、コードのValue setを定義する。",
+        "definition": "結果がコード化されたコンセプトで記述できる場合。定性検査値の場合などに使用する。質問項目の回答記号もコードと回答文字列とみなしてこの結果記述方法を使用することができる。",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]:valueString",
+        "path": "Observation.value[x]",
+        "sliceName": "valueString",
+        "short": "検査結果値が「文字列」の場合、その文字列を指定する。",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Observation.dataAbsentReason",
+        "path": "Observation.dataAbsentReason",
+        "comment": "【JP Core仕様】SS-MIX2で未使用だが、valueの欠落時に使用する必要があり、重要な項目である。\r\n\r\n制約「obs-6」に示す通り、valueが存在する場合、この要素は存在してはならない。\r\n\r\ntextのみでの使用は基本的に不可とし、必ずcodingを以下から設定すること。適切な理由を選べないシステムの場合には、unknownを使用するものとする。\r\n\r\n(unknown：値が存在するかしないか不明 |  masked：結果非開示 | not-applicable：適用外（システム適用外など、生体にありえない項目（男性患者における女性固有検査値など）） | as-text ：テキスト表現で別途記述| error ：システムエラー|   not-a-number：結果が数値でない、数値化エラー |   negative-infinity：数値が小さすぎて表現できない |   positive-infinity：数値が大きすぎて表現 | not-performed：未実施| not-permitted：結果取得が許可されていない",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "comment": "【JP Core仕様】拡張可コード表「ObservationInterpretationCodes」からいずれかの適当なコードをひとつ使用するが、本要素はなくてもよい。その施設における基準値が設定されている数値検査結果に対しては、基準値範囲により解釈したH（高）、L（低）、N（正常範囲） のいずれかを設定することが望ましい。\r\n\r\nコード表が大きいため、下記参照。\r\n\r\nhttps://www.hl7.org/fhir/R4/valueset-observation-interpretation.html",
+        "requirements": "特に数値結果については、結果の重要性を完全に理解するために解釈を必要。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.note",
+        "path": "Observation.note",
+        "short": "検査、あるいは結果に関するコメント。フリーテキストの追加情報として使用可能。",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.specimen",
+        "path": "Observation.specimen",
+        "short": "この検査に使用された検体（標本）。",
+        "definition": "この検査に使用された検体（標本）を表すSpecimenリソース（Containedリソース）への参照。検体材料に関する情報を記述したSpecimenリソースをContainedリソースとして本リソースに埋め込んで、それを参照すること。\r\n３文書６情報の作成では、JP_Specimenタイプのリソース（Specimen.idの値が\"#specimen203987\"と仮定）が本リソースのContainedリソースとして埋め込み記述されることが必須であるため、そのcontainedリソースのid値(Specimen.id)を記述する。(例 2\r\n{\r\n  \"reference\":  \"#specimen203987\"\r\n})\r\nとなる。",
+        "comment": "Containedリソースに含まれるSpecimenリソースをリソース内で参照する。必須。",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Specimen"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.hasMember",
+        "path": "Observation.hasMember",
+        "short": "この検査に含まれる個々の検査結果項目を示す。",
+        "definition": "この検査（パネルやバッテリ）が結果を持たない親項目（グループ項目に相当）の場合に、この検査に含まれる個々の検査結果への参照を示す。",
+        "comment": "この検査が複数の検査項目をグループ化したパネル検査もしくはバッテリー検査の場合に、このグループに含まれる個々の検査の参照へのリストである。この場合には、本Observationリソースのvalueは存在しない。Bundleリソースなどで本リソースから参照可能なObservationリソースが同時に存在する場合には、そのリソースの識別URIを参照する。この検査に含まれる個々の検査結果Observationリソースを、このリソースに埋め込むのではなく、別の検査結果Observationリソースとして作成し、そのidentifierを論理参照する方法をとること。",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Observation_LabResult"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.derivedFrom",
+        "path": "Observation.derivedFrom",
+        "short": "派生元（素材元）の検査結果への参照のリスト。",
+        "definition": "この検査が他の1つ以上の検査値から派生している（BMIが体重と身長から派生して算出される場合など）場合に、その派生元の検査への参照のリスト。記述方法としては、hasMember要素と同様に記述する。",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Observation_LabResult"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

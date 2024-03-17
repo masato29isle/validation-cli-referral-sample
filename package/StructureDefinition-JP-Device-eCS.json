@@ -1,0 +1,40 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Device-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Device_eCS",
+  "name": "JP_Device_eCS",
+  "status": "active",
+  "date": "2023-03-31",
+  "description": "Derived Profile from JP-Core",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "udi",
+      "uri": "http://fda.gov/UDI",
+      "name": "UDI Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Device",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Device",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Device",
+        "path": "Device"
+      }
+    ]
+  }
+}

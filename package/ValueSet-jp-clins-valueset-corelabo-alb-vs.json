@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_CLINS_ValueSet_CoreLabo_alb_VS",
+  "id": "jp-clins-valueset-corelabo-alb-vs",
+  "title": "CLINS: ALB ValueSet",
+  "description": "CLINS 電子カルテ共有サービス用 アルブミン JLAC10 ValueSet",
+  "url": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_alb_VS",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-10-11T21:17:22.426+09:00"
+  },
+  "version": "1.1.0a",
+  "experimental": false,
+  "date": "2023-10-15",
+  "copyright": "JAMI",
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "descendent-of",
+            "value": "ALB"
+          }
+        ]
+      }
+    ]
+  }
+}

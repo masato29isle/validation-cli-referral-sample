@@ -1,0 +1,482 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Encounter-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Encounter_eCS",
+  "name": "JP_Encounter_eCS",
+  "title": "eCS:JP_Encounter-eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "eCS 診療情報・サマリー汎用 Encounterリソース（受診時・入院時等のEncounter情報）プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter",
+        "path": "Encounter",
+        "short": "",
+        "definition": "診療情報提供では、紹介理由を記述する受診時情報. 診療サマリーではサマリー対象となる受診や入院に関する受診時または入院時情報。診療６情報において埋め込みリソースとして記述する場合にも適用できる。"
+      },
+      {
+        "id": "Encounter.meta",
+        "path": "Encounter.meta",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.meta.versionId",
+        "path": "Encounter.meta.versionId",
+        "short": "バージョン固有の識別子",
+        "definition": "バージョン固有の識別子"
+      },
+      {
+        "id": "Encounter.meta.lastUpdated",
+        "path": "Encounter.meta.lastUpdated",
+        "short": "このリソースのデータが最後に作成、更新、複写された日時。最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz　例:2015-02-07T13:28:17.239+09:00",
+        "definition": "このリソースのデータが最後に作成、更新、複写された日時。最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz　例:2015-02-07T13:28:17.239+09:00",
+        "comment": "この要素は、このリソースのデータを取り込んで蓄積していたシステムが、このリソースになんらかの変更があった可能性があった日時を取得し、このデータを再取り込みする必要性の判断をするために使われる。本要素に前回取り込んだ時点より後の日時が設定されている場合には、なんらかの変更があった可能性がある（変更がない場合もある）ものとして判断される。したがって、内容になんらかの変更があった場合、またはこのリソースのデータが初めて作成された場合には、その時点以降の日時（たとえば、このリソースのデータを作成した日時）を設定しなければならない。内容の変更がない場合でも、このリソースのデータが作り直された場合や単に複写された場合にその日時を設定しなおしてもよい。ただし、内容に変更がないのであれば、日時を変更しなくてもよい。また、この要素の変更とmeta.versionIdの変更とは、必ずしも連動しないことがある。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.meta.profile",
+        "path": "Encounter.meta.profile",
+        "short": "準拠しているプロファイルを受信側に通知したい場合には、本文書のプロファイルを識別するURLを指定する。http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Encounter_eCS　を設定する。電子カルテ情報共有サービスに本リソースデータを送信する場合には、別に定義されるURLを設定すること。",
+        "definition": "準拠しているプロファイルを受信側に通知したい場合には、本文書のプロファイルを識別するURLを指定する。http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Encounter_eCS　を設定する。電子カルテ情報共有サービスに本リソースデータを送信する場合には、別に定義されるURLを設定すること。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.identifier",
+        "path": "Encounter.identifier",
+        "short": "この医療機関における患者の受診番号、入院管理番号",
+        "definition": "この医療機関における患者の受診番号、入院管理番号",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.identifier.value",
+        "path": "Encounter.identifier.value",
+        "short": "「リソース一意識別ID」の文字列。URI形式を使う場合には、urn:ietf:rfc:3986に準拠すること。",
+        "definition": "「リソース一意識別ID」の文字列。URI形式を使う場合には、urn:ietf:rfc:3986に準拠すること。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.status",
+        "path": "Encounter.status",
+        "definition": "finished の固定値を設定する。",
+        "fixedCode": "finished",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "short": "受診イベントの分類",
+        "definition": "受診イベントの分類。外来（外来）、入院、救急、在宅医療、その他の地域差による患者Encouterの分類を表す概念。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.class.system",
+        "path": "Encounter.class.system",
+        "definition": "コード体系v3.ActEncounterCodeを識別するURI。固定値。",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.class.code",
+        "path": "Encounter.class.code",
+        "definition": "AMB:外来　EMER:救急　HH:在宅ケア    IMP:入院または入院中    ACUTE: 入院中臨時     NONAC:入院中定時   PRENC:予定入院時    VR:リモート診療",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
+        }
+      },
+      {
+        "id": "Encounter.class.display",
+        "path": "Encounter.class.display",
+        "definition": "AMB:外来　EMER:救急　HH:在宅ケア    IMP:入院または入院中    ACUTE: 入院中臨時     NONAC:入院中定時   PRENC:予定入院時    VR:リモート診療",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory",
+        "path": "Encounter.classHistory",
+        "short": "外来受診履歴や入院履歴の繰り返し記述。",
+        "definition": "この入院期間までの外来受診履歴や入院履歴を記述したい場合にここに繰り返しで記述する。紹介先受診情報では不要。",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.class",
+        "path": "Encounter.classHistory.class",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.class.system",
+        "path": "Encounter.classHistory.class.system",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.class.code",
+        "path": "Encounter.classHistory.class.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.class.display",
+        "path": "Encounter.classHistory.class.display",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.period",
+        "path": "Encounter.classHistory.period",
+        "short": "入院期間を表す必要がある場合には必須。外来では必要な場合を除き省略可。",
+        "definition": "入院期間を表す必要がある場合には必須。外来では必要な場合を除き省略可。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.period.start",
+        "path": "Encounter.classHistory.period.start",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.classHistory.period.end",
+        "path": "Encounter.classHistory.period.end",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.period",
+        "path": "Encounter.period",
+        "short": "入院期間。退院時サマリーでは必須。外来では必要な場合を除き省略可。",
+        "definition": "入院期間。退院時サマリーでは必須。外来では必要な場合を除き省略可。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.period.start",
+        "path": "Encounter.period.start",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.period.end",
+        "path": "Encounter.period.end",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.length",
+        "path": "Encounter.length",
+        "short": "この入院の在院日数",
+        "definition": "この入院の在院日数",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.length.value",
+        "path": "Encounter.length.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.length.unit",
+        "path": "Encounter.length.unit",
+        "definition": "日",
+        "min": 1,
+        "fixedString": "日",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.length.system",
+        "path": "Encounter.length.system",
+        "min": 1,
+        "fixedUri": "http://unitsofmeasure.org",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.length.code",
+        "path": "Encounter.length.code",
+        "definition": "日",
+        "min": 1,
+        "fixedCode": "d",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reasonCode",
+        "path": "Encounter.reasonCode",
+        "short": "入院時主訴・入院理由。紹介する理由（主訴・目的）",
+        "definition": "コードで記述できる場合にそのコード記述。system値はMEDIS標準病名マスター病名交換用コードを使用できる。text要素にフリーテキストで記述してもよい。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reasonCode.coding",
+        "path": "Encounter.reasonCode.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reasonCode.coding.system",
+        "path": "Encounter.reasonCode.coding.system",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reasonCode.coding.code",
+        "path": "Encounter.reasonCode.coding.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reasonCode.text",
+        "path": "Encounter.reasonCode.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis",
+        "path": "Encounter.diagnosis",
+        "short": "入院期間中の診断情報。診療情報提供書では不要。",
+        "definition": "入院期間中の診断情報。診療情報提供書では不要。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.condition",
+        "path": "Encounter.diagnosis.condition",
+        "short": "患者状態（病態・疾患名・症状）への参照",
+        "definition": "患者状態（病態・疾患名・症状）への参照",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Condition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.use",
+        "path": "Encounter.diagnosis.use",
+        "short": "診断の位置付け区分",
+        "definition": "診断の位置付け区分（DiagnosisRole）。これにより、入院時診断、退院時診断、などが区別される。入院中のすべての診断病名にこのコードが必須ではないが、少なくともAD:入院時診断、DD:退院時診断、CC:主訴、についてはそれぞれ1個以上はこのコードがついている必要がある。AD:入院時診断　DD:退院時診断　FU:フォローアップ時診断 ",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.use.coding",
+        "path": "Encounter.diagnosis.use.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.use.coding.system",
+        "path": "Encounter.diagnosis.use.coding.system",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.use.coding.code",
+        "path": "Encounter.diagnosis.use.coding.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.use.coding.display",
+        "path": "Encounter.diagnosis.use.coding.display",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.diagnosis.rank",
+        "path": "Encounter.diagnosis.rank",
+        "short": "診断の優先順位",
+        "definition": "診断の優先順位。入院時診断、退院時診断、主訴、などの優先順位を表す。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization",
+        "path": "Encounter.hospitalization",
+        "short": "入退院の詳細状況。診療情報提供書では不要。",
+        "definition": "入退院の詳細状況。診療情報提供書では不要。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.origin",
+        "path": "Encounter.hospitalization.origin",
+        "short": "入院前の所在場所または施設への参照。",
+        "definition": "入院前の所在場所または施設への参照。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.admitSource",
+        "path": "Encounter.hospitalization.admitSource",
+        "short": "入院経路を表すコード情報",
+        "definition": "入院経路を表すコード情報",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://jpfhir.jp/fhir/Common/ValueSet/admit-Source"
+        }
+      },
+      {
+        "id": "Encounter.hospitalization.admitSource.coding",
+        "path": "Encounter.hospitalization.admitSource.coding",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.admitSource.coding.system",
+        "path": "Encounter.hospitalization.admitSource.coding.system",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.admitSource.coding.code",
+        "path": "Encounter.hospitalization.admitSource.coding.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.destination",
+        "path": "Encounter.hospitalization.destination",
+        "short": "退院後の所在場所または施設への参照。",
+        "definition": "退院後の所在場所または施設への参照。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.dischargeDisposition",
+        "path": "Encounter.hospitalization.dischargeDisposition",
+        "short": "退院時転帰コード情報",
+        "definition": "退院時転帰コード情報",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.dischargeDisposition.coding",
+        "path": "Encounter.hospitalization.dischargeDisposition.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.dischargeDisposition.coding.system",
+        "path": "Encounter.hospitalization.dischargeDisposition.coding.system",
+        "min": 1,
+        "patternUri": "http://jpfhir.jp/fhir/Common/CodeSystem/discharge-disposition",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.dischargeDisposition.coding.code",
+        "path": "Encounter.hospitalization.dischargeDisposition.coding.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.hospitalization.dischargeDisposition.coding.display",
+        "path": "Encounter.hospitalization.dischargeDisposition.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location",
+        "path": "Encounter.location",
+        "short": "入院中の所在場所（病棟病室など）。診療情報提供書では不要。",
+        "definition": "入院中の所在場所（病棟病室など）。診療情報提供書では不要。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.location",
+        "path": "Encounter.location.location",
+        "short": "入院中の所在場所（病棟病室など）への参照。",
+        "definition": "入院中の所在場所（病棟病室など）への参照。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.status",
+        "path": "Encounter.location.status",
+        "min": 1,
+        "patternCode": "completed",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.physicalType",
+        "path": "Encounter.location.physicalType",
+        "short": "入院中の所在場所（病棟病室など）の種別",
+        "definition": "所在場所のタイプ。bu: 建物wa: 病棟ro: 病室bd: ベッドarea: エリアなど。",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.physicalType.coding",
+        "path": "Encounter.location.physicalType.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.physicalType.coding.system",
+        "path": "Encounter.location.physicalType.coding.system",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.physicalType.coding.code",
+        "path": "Encounter.location.physicalType.coding.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.physicalType.coding.display",
+        "path": "Encounter.location.physicalType.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.period",
+        "path": "Encounter.location.period",
+        "short": "所在期間",
+        "definition": "所在期間",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.period.start",
+        "path": "Encounter.location.period.start",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.location.period.end",
+        "path": "Encounter.location.period.end",
+        "mustSupport": true
+      }
+    ]
+  }
+}

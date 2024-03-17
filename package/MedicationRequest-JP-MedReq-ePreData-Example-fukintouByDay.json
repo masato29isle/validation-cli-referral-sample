@@ -1,0 +1,184 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "JP-MedReq-ePreData-Example-fukintouByDay",
+  "meta": {
+    "lastUpdated": "2021-11-26T10:00:00+09:00",
+    "profile": [
+      "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_MedicationRequest_eCS"
+    ]
+  },
+  "status": "completed",
+  "intent": "order",
+  "identifier": [
+    {
+      "system": "urn:oid:1.2.392.100495.20.3.81",
+      "value": "9"
+    },
+    {
+      "system": "urn:oid:1.2.392.100495.20.3.82",
+      "value": "1"
+    },
+    {
+      "system": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier",
+      "value": "1311234567-2020-00123456"
+    }
+  ],
+  "dosageInstruction": [
+    {
+      "extension": [
+        {
+          "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_MedicationDosage_PeriodOfUse",
+          "valuePeriod": {
+            "start": "2020-08-22"
+          }
+        },
+        {
+          "url": "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_MedicationDosage_UsageDuration",
+          "valueDuration": {
+            "value": 7,
+            "code": "d",
+            "system": "http://unitsofmeasure.org",
+            "unit": "日"
+          }
+        }
+      ],
+      "doseAndRate": [
+        {
+          "rateRatio": {
+            "denominator": {
+              "value": 1,
+              "unit": "日",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            },
+            "numerator": {
+              "value": 7,
+              "code": "TAB",
+              "system": "urn:oid:1.2.392.100495.20.2.101",
+              "unit": "錠"
+            }
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "1",
+                "system": "urn:oid:1.2.392.100495.20.2.22",
+                "display": "製剤量"
+              }
+            ]
+          }
+        }
+      ],
+      "text": "１日３回　毎食後　７錠（４錠－２錠－１錠）",
+      "additionalInstruction": [
+        {
+          "coding": [
+            {
+              "code": "V14NNNNN",
+              "system": "urn:oid:1.2.392.200250.2.2.20.22",
+              "display": "不均等・１回目・４単位量"
+            }
+          ],
+          "text": "不均等・１回目・４錠"
+        },
+        {
+          "coding": [
+            {
+              "code": "V22NNNNN",
+              "system": "urn:oid:1.2.392.200250.2.2.20.22",
+              "display": "不均等・２回目・２単位量"
+            }
+          ],
+          "text": "不均等・２回目・２錠"
+        },
+        {
+          "coding": [
+            {
+              "code": "V31NNNNN",
+              "system": "urn:oid:1.2.392.200250.2.2.20.22",
+              "display": "不均等・３回目・１単位量"
+            }
+          ],
+          "text": "不均等・３回目・１錠"
+        }
+      ],
+      "timing": {
+        "repeat": {
+          "boundsDuration": {
+            "value": 7,
+            "code": "d",
+            "system": "http://unitsofmeasure.org",
+            "unit": "日"
+          }
+        },
+        "code": {
+          "coding": [
+            {
+              "code": "1013044400000000",
+              "system": "urn:oid:1.2.392.200250.2.2.20",
+              "display": "内服・経口・１日３回毎食後"
+            }
+          ],
+          "text": "１日３回　毎食後　７錠（４錠－２錠－１錠）"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "code": "PO",
+            "system": "http://jpfhir.jp/fhir/core/CodeSystem/route-codes",
+            "display": "口"
+          }
+        ]
+      },
+      "method": {
+        "coding": [
+          {
+            "code": "1",
+            "system": "urn:oid:1.2.392.200250.2.2.20.30",
+            "display": "内服"
+          }
+        ]
+      }
+    }
+  ],
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "code": "105271807",
+        "system": "urn:oid:1.2.392.200119.4.403.1",
+        "display": "プレドニン錠５ｍｇ・塩野義"
+      }
+    ],
+    "text": "プレドニン錠５ｍｇ・塩野義"
+  },
+  "subject": {
+    "reference": "Patient/jppatientExample01"
+  },
+  "authoredOn": "2020-08-21T12:28:17+09:00",
+  "dispenseRequest": {
+    "quantity": {
+      "value": 49,
+      "code": "TAB",
+      "system": "urn:oid:1.2.392.100495.20.2.101",
+      "unit": "錠"
+    },
+    "expectedSupplyDuration": {
+      "value": 7,
+      "code": "d",
+      "system": "http://unitsofmeasure.org",
+      "unit": "日"
+    }
+  },
+  "substitution": {
+    "allowedCodeableConcept": {
+      "coding": [
+        {
+          "code": "0",
+          "system": "urn:oid:1.2.392.100495.20.2.41",
+          "display": "変更可"
+        }
+      ]
+    }
+  }
+}

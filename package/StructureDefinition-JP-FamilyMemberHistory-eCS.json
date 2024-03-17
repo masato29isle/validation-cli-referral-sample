@@ -1,0 +1,224 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-FamilyMemberHistory-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_FamilyMemberHistory_eCS",
+  "name": "JP_FamilyMemberHistory_eCS",
+  "status": "active",
+  "date": "2023-03-31",
+  "description": "Derived Profile from JP-Core",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "FamilyMemberHistory",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_FamilyMemberHistory",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "FamilyMemberHistory.meta.lastUpdated",
+        "path": "FamilyMemberHistory.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.status",
+        "path": "FamilyMemberHistory.status",
+        "patternCode": "partial",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.dataAbsentReason",
+        "path": "FamilyMemberHistory.dataAbsentReason",
+        "short": "家族の情報がとれない理由コード",
+        "definition": "家族の情報がとれない理由コード",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/history-absent-reason"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.patient",
+        "path": "FamilyMemberHistory.patient",
+        "short": "対象となる患者リソースへの参照。",
+        "definition": "対象となる患者リソースへの参照。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.date",
+        "path": "FamilyMemberHistory.date",
+        "short": "家族歴情報が取得された、または更新された日時。",
+        "definition": "家族歴情報が取得された、または更新された日時。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.name",
+        "path": "FamilyMemberHistory.name",
+        "short": "この家族の名前。通称や患者からの呼び名でもよい",
+        "definition": "この家族の名前。通称や患者からの呼び名でもよい",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.relationship",
+        "path": "FamilyMemberHistory.relationship",
+        "short": "患者に対するこの家族の関係",
+        "definition": "患者に対するこの家族の関係",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding",
+        "path": "FamilyMemberHistory.relationship.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding.system",
+        "path": "FamilyMemberHistory.relationship.coding.system",
+        "min": 1,
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding.code",
+        "path": "FamilyMemberHistory.relationship.coding.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.relationship.coding.display",
+        "path": "FamilyMemberHistory.relationship.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.sex",
+        "path": "FamilyMemberHistory.sex",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.sex.coding",
+        "path": "FamilyMemberHistory.sex.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.sex.coding.system",
+        "path": "FamilyMemberHistory.sex.coding.system",
+        "min": 1,
+        "fixedUri": "http://hl7.org/fhir/administrative-gender",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.sex.coding.display",
+        "path": "FamilyMemberHistory.sex.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.age[x]",
+        "path": "FamilyMemberHistory.age[x]",
+        "short": "この家族の年齢。",
+        "definition": "この家族の年齢。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.estimatedAge",
+        "path": "FamilyMemberHistory.estimatedAge",
+        "short": "上記年齢は（計算やアルゴリズムによる）推定値によるものであれば true、それ以外は false。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.deceased[x]",
+        "path": "FamilyMemberHistory.deceased[x]",
+        "short": "この家族が死亡しているかどうか。",
+        "definition": "家族が死亡している場合に、その真偽、年齢、時期などのいずれかひとつの要素で記述する。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.note",
+        "path": "FamilyMemberHistory.note",
+        "short": "この家族に関する一般的な情報のテキスト記述。",
+        "definition": "この家族に関する一般的な情報のテキスト記述。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.condition",
+        "path": "FamilyMemberHistory.condition",
+        "short": "家族が持っていた重要な健康状態（家族歴に記述すべき疾病等。複数記述できる。",
+        "definition": "家族が持っていた重要な健康状態（家族歴に記述すべき疾病等）。複数記述できる。",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.condition.code",
+        "path": "FamilyMemberHistory.condition.code",
+        "short": "疾病コード情報またはテキスト情報",
+        "definition": "疾病コード情報またはテキスト情報",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.condition.code.coding",
+        "path": "FamilyMemberHistory.condition.code.coding",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.condition.code.text",
+        "path": "FamilyMemberHistory.condition.code.text",
+        "short": "疾病のテキスト情報（コードにより十分表現できない場合などに使用）",
+        "definition": "疾病のテキスト情報（コードにより十分表現できない場合などに使用）",
+        "mustSupport": true
+      },
+      {
+        "id": "FamilyMemberHistory.condition.onset[x]",
+        "path": "FamilyMemberHistory.condition.onset[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "FamilyMemberHistory.condition.onset[x]:onsetAge",
+        "path": "FamilyMemberHistory.condition.onset[x]",
+        "sliceName": "onsetAge",
+        "short": "その家族における疾病の（発症）年齢。",
+        "definition": "その家族における疾病の（発症）年齢。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Age"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

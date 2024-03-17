@@ -1,0 +1,143 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-AllergyIntolerance-CLINS-eCS",
+  "url": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_AllergyIntolerance_eCS",
+  "name": "JP_AllergyIntolerance_CLINS_eCS",
+  "title": "CLINS電子カルテ情報共有サービス用:JP_AllergyIntolerance_CLINS_eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "CLINS 電子カルテ共有サービス用 AllergyIntoleranceリソース（アレルギー情報／薬剤禁忌）プロファイル。 JP_AllergyIntolerance_eCSからの派生プロファイル。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "AllergyIntolerance",
+  "baseDefinition": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_AllergyIntolerance_eCS",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AllergyIntolerance",
+        "path": "AllergyIntolerance",
+        "comment": "このプロファイルは、電子カルテ情報共有サービスに送信するために適合したプロファイルである。薬剤禁忌情報かアレルギー情報かの区別はcategory要素がmedicationかそれ以外かによる。",
+        "constraint": [
+          {
+            "key": "warning-medication-allergy",
+            "severity": "warning",
+            "human": "注意喚起：R2011:薬剤禁忌情報として本リソース種別を使用するのであれば、category要素は\"medication\"で、criticality要素は\"high\"を設定しなければならない。このままcriticality要素が\"high\"以外で差し支えなければ修正不要。",
+            "expression": "category.where($this='medication').exists() and criticality!='high'",
+            "source": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_AllergyIntolerance_eCS"
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.meta.profile",
+        "path": "AllergyIntolerance.meta.profile",
+        "short": "準拠しているプロファイルを受信側に通知するため、本文書のプロファイルを識別するURLを必ず指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_AllergyIntolerance_eCS",
+        "definition": "準拠しているプロファイルを受信側に通知するため、本文書のプロファイルを識別するURLを必ず指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_AllergyIntolerance_eCS",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "AllergyIntolerance.meta.tag",
+        "path": "AllergyIntolerance.meta.tag",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "AllergyIntolerance.meta.tag:lts",
+        "path": "AllergyIntolerance.meta.tag",
+        "sliceName": "lts",
+        "short": "電子カルテ情報共有サービスで長期保存フラグの設定する場合に使用する。",
+        "definition": "電子カルテ情報共有サービスで長期保存フラグの設定する場合に使用する。",
+        "min": 0,
+        "max": "1",
+        "patternCoding": {
+          "code": "LTS",
+          "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.meta.tag:lts.system",
+        "path": "AllergyIntolerance.meta.tag.system",
+        "short": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "definition": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.meta.tag:lts.code",
+        "path": "AllergyIntolerance.meta.tag.code",
+        "short": "長期保存フラグ　固定値 LTSを設定する。",
+        "definition": "長期保存フラグ　固定値 LTSを設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.extension",
+        "path": "AllergyIntolerance.extension",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.extension:eCS_InstitutionNumber",
+        "path": "AllergyIntolerance.extension",
+        "sliceName": "eCS_InstitutionNumber",
+        "short": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。電子カルテ情報サービスでは、この拡張による記述は必須。本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "definition": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。電子カルテ情報サービスでは、この拡張による記述は必須。本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "min": 1
+      },
+      {
+        "id": "AllergyIntolerance.category",
+        "path": "AllergyIntolerance.category",
+        "comment": "電子カルテ情報共有サービスでは、薬剤禁忌情報として本リソース種別を使用する場合には、必ず本要素は\"medication\"として存在しなければならず、criticality要素は\"high\"を設定しなければならない。これ以外の場合には、本リソースの情報は薬剤禁忌以外のアレルギー情報として取り扱われる。"
+      },
+      {
+        "id": "AllergyIntolerance.criticality",
+        "path": "AllergyIntolerance.criticality",
+        "comment": "電子カルテ情報共有サービスでは、薬剤禁忌情報として本リソース種別を使用する場合には、category要素の記述を参照すること。"
+      },
+      {
+        "id": "AllergyIntolerance.patient",
+        "path": "AllergyIntolerance.patient",
+        "comment": "電子カルテ共有サービスでは、別途BundleリソースでPatientリソースが送信されているので、その被保険者個人識別子を明示することにより患者を参照する。",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_Patient_eCS"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "AllergyIntolerance.patient.identifier.system",
+        "path": "AllergyIntolerance.patient.identifier.system",
+        "fixedUri": "http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID"
+      }
+    ]
+  }
+}

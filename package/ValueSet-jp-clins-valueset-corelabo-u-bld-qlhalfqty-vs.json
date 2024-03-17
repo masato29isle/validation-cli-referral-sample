@@ -1,0 +1,30 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_CLINS_ValueSet_CoreLabo_u_bld_QLHalfQty_VS",
+  "id": "jp-clins-valueset-corelabo-u-bld-qlhalfqty-vs",
+  "title": "CLINS: U-Bld-定性半定量 ValueSet",
+  "description": "CLINS 電子カルテ共有サービス用 尿潜血(半定量、判定)  ValueSet",
+  "url": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_CoreLabo_u_bld_QLHalfQty_VS",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-10-11T21:17:22.426+09:00"
+  },
+  "version": "1.1.0a",
+  "experimental": false,
+  "date": "2023-10-15",
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_CoreLabo_CS",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "descendent-of",
+            "value": "U-Bld-QLHalfQty"
+          }
+        ]
+      }
+    ]
+  }
+}

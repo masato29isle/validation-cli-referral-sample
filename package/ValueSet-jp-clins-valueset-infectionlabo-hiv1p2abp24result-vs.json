@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_CLINS_ValueSet_InfectionLabo_HIV1P2ABP24RESULT_VS",
+  "id": "jp-clins-valueset-infectionlabo-hiv1p2abp24result-vs",
+  "title": "CLINS 電子カルテ共有サービス用:感染症検査項目セット HIV-1+2抗体・p24抗原(判定)",
+  "description": "CLINS 電子カルテ共有サービス用 感染症検査項目セット HIV-1+2抗体・p24抗原(判定)",
+  "url": "http://jpfhir.jp/fhir/clins/ValueSet/JP_CLINS_ObsLabResult_InfectionLabo_HIV1P2ABP24RESULT_VS",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2022-10-11T21:17:22.426+09:00"
+  },
+  "version": "1.1.0a",
+  "experimental": false,
+  "date": "2023-10-15",
+  "copyright": "JAMI",
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_CLINS_ObsLabResult_InfectionLabo_CS",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "descendent-of",
+            "value": "HIV-1P2-AB-P24-RESULT"
+          }
+        ]
+      }
+    ]
+  }
+}

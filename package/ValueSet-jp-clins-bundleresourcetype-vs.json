@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_CLINS_BundleResourceType_VS",
+  "id": "jp-clins-bundleresourcetype-vs",
+  "description": "６情報Bundle６情報リソースタイプ　valueSet",
+  "url": "http://jpfhir.jp/fhir/clins/ValueSet/BundleResourceType_VS",
+  "title": "６情報Bundle６情報リソースタイプ　valueSet",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/clins/CodeSystem/BundleResourceType_CS"
+      }
+    ]
+  }
+}

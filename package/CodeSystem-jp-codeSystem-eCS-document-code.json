@@ -1,0 +1,25 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "Loinc_subset_forDocumentCode",
+  "id": "jp-codeSystem-eCS-document-code",
+  "title": "Loincコードのサブセットコード",
+  "description": "Loincコードのサブセットコード",
+  "url": "http://loinc.org",
+  "concept": [
+    {
+      "code": "18748-4",
+      "display": "Diagnostic imaging study"
+    },
+    {
+      "code": "11506-3",
+      "display": "Progress note"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": false,
+  "date": "2023-04-01T00:00:00+09:00",
+  "version": "5.11",
+  "count": 2
+}

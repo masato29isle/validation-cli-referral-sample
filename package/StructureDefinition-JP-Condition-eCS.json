@@ -1,0 +1,597 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Condition-eCS",
+  "url": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Condition_eCS",
+  "name": "JP_Condition_eCS",
+  "title": "eCS:JP_Condition_eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "eCS 診療情報・サマリー汎用 Conditionリソース（傷病名情報）プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "sct-concept",
+      "uri": "http://snomed.info/conceptdomain",
+      "name": "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "sct-attr",
+      "uri": "http://snomed.org/attributebinding",
+      "name": "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Condition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Condition",
+        "path": "Condition",
+        "short": "診療情報における傷病名情報の格納に使用する",
+        "definition": "診療情報における傷病名情報の格納に使用する",
+        "comment": "このプロファイルは、電子カルテ情報共有サービスに送信するために適合したプロファイルではない。電子カルテ情報共有サービスに送信する場合には、このプロファイルから派生した別の専用プロファイルを用いること。"
+      },
+      {
+        "id": "Condition.meta",
+        "path": "Condition.meta",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.versionId",
+        "path": "Condition.meta.versionId",
+        "short": "バージョン固有の識別子",
+        "definition": "バージョン固有の識別子"
+      },
+      {
+        "id": "Condition.meta.lastUpdated",
+        "path": "Condition.meta.lastUpdated",
+        "short": "このリソースのデータが最後に作成、更新、複写された日時。最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz　例:2015-02-07T13:28:17.239+09:00",
+        "definition": "このリソースのデータが最後に作成、更新、複写された日時。最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz　例:2015-02-07T13:28:17.239+09:00",
+        "comment": "この要素は、このリソースのデータを取り込んで蓄積していたシステムが、このリソースになんらかの変更があった可能性があった日時を取得し、このデータを再取り込みする必要性の判断をするために使われる。本要素に前回取り込んだ時点より後の日時が設定されている場合には、なんらかの変更があった可能性がある（変更がない場合もある）ものとして判断される。したがって、内容になんらかの変更があった場合、またはこのリソースのデータが初めて作成された場合には、その時点以降の日時（たとえば、このリソースのデータを作成した日時）を設定しなければならない。内容の変更がない場合でも、このリソースのデータが作り直された場合や単に複写された場合にその日時を設定しなおしてもよい。ただし、内容に変更がないのであれば、日時を変更しなくてもよい。また、この要素の変更とmeta.versionIdの変更とは、必ずしも連動しないことがある。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.profile",
+        "path": "Condition.meta.profile",
+        "short": "準拠しているプロファイルを受信側に通知したい場合には、本文書のプロファイルを識別するURLを指定する。http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Condition_eCS　を設定する。電子カルテ情報共有サービスに本リソースデータを送信する場合には、別に定義されるURLを設定すること。",
+        "definition": "準拠しているプロファイルを受信側に通知したい場合には、本文書のプロファイルを識別するURLを指定する。http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_Condition_eCS　を設定する。電子カルテ情報共有サービスに本リソースデータを送信する場合には、別に定義されるURLを設定すること。",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.tag",
+        "path": "Condition.meta.tag",
+        "short": "電子カルテ情報共有サービスでは、長期保存フラグ、未告知フラグ、未提供フラグの設定する場合に使用する。詳細はJP_Condition_CLINS_eCSを参照のこと。",
+        "definition": "電子カルテ情報共有サービスでは、長期保存フラグ、未告知フラグ、未提供フラグの設定する場合に使用する。詳細はJP_Condition_CLINS_eCSを参照のこと。"
+      },
+      {
+        "id": "Condition.contained",
+        "path": "Condition.contained",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.contained:encounter",
+        "path": "Condition.contained",
+        "sliceName": "encounter",
+        "short": "傷病名情報を記録（登録）したときの入院外来受診情報をコンパクトに格納したEncounterリソース",
+        "definition": "傷病名情報を記録（登録）したときの入院外来受診情報をコンパクトに格納したEncounterリソース",
+        "comment": "encounter要素から参照される場合には、そのJP_Encounterリソースの実体。JP_Encounterリソースにおける必要最小限の要素だけが含まれればよい。ここで埋め込まれるJP_Encounterリソースでは、Encounter.classにこの情報を記録したときの受診情報（入外区分など）を記述して使用する。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Encounter",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Encounter"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.contained:recorder",
+        "path": "Condition.contained",
+        "sliceName": "recorder",
+        "short": "傷病名情報の記録者情報をコンパクトに格納したPractitionerリソース",
+        "definition": "傷病名情報の記録者情報をコンパクトに格納したPractitionerリソース",
+        "comment": "recorder要素から参照される場合には、そのJP_Practitionerリソースの実体。JP_Practitionerリソースにおける必要最小限の要素だけが含まれればよい。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Practitioner",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Practitioner"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.extension",
+        "path": "Condition.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.extension:eCS_InstitutionNumber",
+        "path": "Condition.extension",
+        "sliceName": "eCS_InstitutionNumber",
+        "short": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。\n本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "definition": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。\n本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "comment": "電子カルテ情報サービスでは、この拡張による記述は必須。医療機関１０桁番号を示すsystem値は\"http://jpfhir.jp/fhir/core/IdSystem/insurance-medical-institution-no\"を使用する。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/clins/Extension/StructureDefinition/JP_eCS_InstitutionNumber"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.extension:eCS_Department",
+        "path": "Condition.extension",
+        "sliceName": "eCS_Department",
+        "short": "本情報を作成発行した診療科または作成発行者の診療科情報を記述するために使用する拡張「eCS_Department」",
+        "definition": "本情報を作成発行した診療科または作成発行者の診療科情報を記述するために使用する拡張「eCS_Department」",
+        "comment": "コード化する場合には、JAMI(SS-MIX2) 診療科コード表のsystem値\"http://jami.jp/SS-MIX2/CodeSystem/ClinicalDepartment\"を使用する。診療科を記述する場合には、そのコード化の有無に関わらずtext要素による記述は必須。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/eCS/Extension/StructureDefinition/JP_eCS_Department"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.identifier",
+        "path": "Condition.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "このリソース情報の識別ID。",
+        "definition": "このリソース情報の識別ID。",
+        "comment": "リソース一意識別IDの仕様は、「診療情報・サマリー汎用リソース一意識別ID仕様」を参照のこと。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.identifier:resourceIdentifier",
+        "path": "Condition.identifier",
+        "sliceName": "resourceIdentifier",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.identifier:resourceIdentifier.system",
+        "path": "Condition.identifier.system",
+        "comment": "リソース一意識別IDのsystem値は\"http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier\"　を設定する。",
+        "min": 1,
+        "patternUri": "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier"
+      },
+      {
+        "id": "Condition.identifier:resourceIdentifier.value",
+        "path": "Condition.identifier.value",
+        "short": "「リソース一意識別ID」の文字列。URI形式を使う場合には、urn:ietf:rfc:3986に準拠すること。",
+        "definition": "「リソース一意識別ID」の文字列。URI形式を使う場合には、urn:ietf:rfc:3986に準拠すること。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.clinicalStatus",
+        "path": "Condition.clinicalStatus",
+        "short": "臨床的状態。病名最終日（abatementDateTime)での状態（転帰）。",
+        "definition": "臨床的状態。病名最終日（abatementDateTime)での状態（転帰）。コードでの記述は必須。ただし、verificationStatus要素が'entered-in-error'であれば、本要素は存在してはならない。それ以外では、必須。",
+        "comment": "コード表　http://terminology.hl7.org/CodeSystem/condition-clinical　から　active（存続）, remission(軽快、寛解), inactive（治癒以外での病名の終了）, resolved (治癒) 、unknown（不明）のいずれかを選ぶ。",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.clinicalStatus.coding",
+        "path": "Condition.clinicalStatus.coding",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.clinicalStatus.text",
+        "path": "Condition.clinicalStatus.text",
+        "short": "コードだけでは記述できない情報がある場合にコードと併用してもよい。値が使用されない可能性はある",
+        "definition": "コードだけでは記述できない情報がある場合にコードと併用してもよい。値が使用されない可能性はある",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus",
+        "path": "Condition.verificationStatus",
+        "short": "入力された臨床的状態に対する検証状況を示す。確からしさと考えられる。コード化記述が必須 。clinicalStatusとの制約条件を参照のこと。疑い病名フラグとしても使用される。疑い病名の場合には、unconfirmedを設定し、それ以外の場合には必ずconfirmedを設定する。",
+        "definition": "unconfirmed | confirmed | refuted | entered-in-error  のいずれか（未確認、確認ずみ、否定、エラー）　system=http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus.coding",
+        "path": "Condition.verificationStatus.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.verificationStatus.text",
+        "path": "Condition.verificationStatus.text",
+        "short": "コードだけでは記述できない情報がある場合や、コード化できない場合には本要素だけで記述してもよい。コードと併用してもよい",
+        "definition": "コードだけでは記述できない情報がある場合や、コード化できない場合には本要素だけで記述してもよい。コードと併用してもよい",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.category",
+        "path": "Condition.category",
+        "short": "臨床的状態に割り当てられたカテゴリー。",
+        "definition": "臨床的状態に割り当てられたカテゴリー。設定する場合には、problem-list-item （プロブレムリスト）| encounter-diagnosis （診察時点での診断名）のいずれかを設定する。電子カルテ情報共有サービスでは、コード'encounter-diagnosis'とすること。コードに対応するdisplay nameは\"Encounter Diagnosis\"。",
+        "comment": "",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.severity",
+        "path": "Condition.severity",
+        "short": "潜在的な臨床的危険性、致命度。",
+        "definition": "\"記述する場合は、コード表：\"http://jpfhir.jp/fhir/core/CodeSystem/JP_ConditionSeverity_CS\"からMI：軽度、MO：中度、SE：重度、UK：不明のいずれかを設定する。\"",
+        "comment": ""
+      },
+      {
+        "id": "Condition.code",
+        "path": "Condition.code",
+        "short": "傷病名のコードと名称",
+        "definition": "傷病名のコードと名称。MEDIS 病名交換コード、病名管理番号、ICD10分類コード、レセプト電算処理用傷病名コード、またはレセプト電算処理用傷病名コードの未コード化コード(7桁all 9)のいずれかまたは複数の組み合わせで表現することを推奨する。\n電子カルテ情報共有サービスでは、病名管理番号（system値は\"urn:oid:1.2.392.200119.4.101.2\"）を必ず使用し、それ以外にICD10分類コードを追加することを推奨する。なお、病名のコード化ができない場合には、病名管理番号と同じ桁数の全桁9の文字列を設定する。",
+        "comment": "code.texはコード化の有無にかかわらず病名入力文字列を必ずそのまま設定する。なお、修飾語は前置修飾語と後置修飾語にわけて、それぞれの拡張を使用して記述する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.extension:diseasePrefixModifier",
+        "path": "Condition.code.extension",
+        "sliceName": "diseasePrefixModifier",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Condition_DiseasePrefixModifier"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.code.extension:diseasePostfixModifier",
+        "path": "Condition.code.extension",
+        "sliceName": "diseasePostfixModifier",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://jpfhir.jp/fhir/core/Extension/StructureDefinition/JP_Condition_DiseasePostfixModifier"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Condition.code.coding",
+        "path": "Condition.code.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.code.coding:mediskoukan",
+        "path": "Condition.code.coding",
+        "sliceName": "mediskoukan",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding:mediskoukan.system",
+        "path": "Condition.code.coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.101.6"
+      },
+      {
+        "id": "Condition.code.coding:mediskanri",
+        "path": "Condition.code.coding",
+        "sliceName": "mediskanri",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding:mediskanri.system",
+        "path": "Condition.code.coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.101.2"
+      },
+      {
+        "id": "Condition.code.coding:syobo",
+        "path": "Condition.code.coding",
+        "sliceName": "syobo",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding:syobo.system",
+        "path": "Condition.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/masterB-disease"
+      },
+      {
+        "id": "Condition.code.coding:icd10",
+        "path": "Condition.code.coding",
+        "sliceName": "icd10",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.code.coding:icd10.system",
+        "path": "Condition.code.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/ICD10-2013-full"
+      },
+      {
+        "id": "Condition.bodySite",
+        "path": "Condition.bodySite",
+        "short": "該当する状態が現れている解剖学的な場所を示す。",
+        "definition": "解剖学的な部位表現のコードと名称",
+        "comment": "MEDIS 病名修飾語コード、修飾語管理番号、レセプト電算処理用傷病名修飾語コードなどが使用できる。"
+      },
+      {
+        "id": "Condition.bodySite.coding",
+        "path": "Condition.bodySite.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.bodySite.coding:mediskoukan",
+        "path": "Condition.bodySite.coding",
+        "sliceName": "mediskoukan",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Condition.bodySite.coding:mediskoukan.system",
+        "path": "Condition.bodySite.coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.201.5"
+      },
+      {
+        "id": "Condition.bodySite.coding:mediskanri",
+        "path": "Condition.bodySite.coding",
+        "sliceName": "mediskanri",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Condition.bodySite.coding:mediskanri.system",
+        "path": "Condition.bodySite.coding.system",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.201.2"
+      },
+      {
+        "id": "Condition.bodySite.coding:syobo",
+        "path": "Condition.bodySite.coding",
+        "sliceName": "syobo",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Condition.bodySite.coding:syobo.system",
+        "path": "Condition.bodySite.coding.system",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/core/mhlw/CodeSystem/masterZ-disease-modifier"
+      },
+      {
+        "id": "Condition.subject",
+        "path": "Condition.subject",
+        "short": "\"患者のFHIRリソース\\(JP_Patient)への参照。電子カルテ情報サービスでは、\\(JP_Patient_CLINS_eCS)への参照とする。\"",
+        "definition": "\"患者のFHIRリソース\\(JP_Patient)への参照。電子カルテ情報サービスでは、\\(JP_Patient_CLINS_eCS)への参照とする。\"",
+        "comment": "記述方法は、「診療情報・サマリー汎用リソース外部参照仕様」を参照のこと。",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.encounter",
+        "path": "Condition.encounter",
+        "short": "病名をつけたときの受診情報（入外区分など）を記述しているEncounterリソースへの参照",
+        "definition": "病名をつけたときの受診情報（入外区分など）を記述しているEncounterリソースへの参照",
+        "comment": "記述方法は、「診療情報・サマリー汎用リソース外部参照仕様」を参照のこと。",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.onset[x]",
+        "path": "Condition.onset[x]",
+        "short": "この傷病名情報が同定された時期",
+        "definition": "患者にこの傷病が出現した時期、あるいはなんらかのエビデンスによりこの傷病が患者にあると確認できた時期を記述する。電子カルテシステムの病名開始日をdateTime型で記述するのが一般的な方法である。電子カルテ情報サービスでは、病名開始日を必須でdateTime型で記述するため、onsetDateTime要素を使用する。",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.abatement[x]",
+        "path": "Condition.abatement[x]",
+        "short": "患者にこの傷病のある状態が終了または確認できた時期、なんらかのエビデンスによりこの傷病のある状態が改善もしくはある状態になったと確認できた時期を記述する。電子カルテシステムの病名終了日（すなわち転帰日）をdateTime型で記述するのが一般的な方法である。電子カルテ情報サービスでは、病名終了日（転帰日）をdateTime型で記述する。この終了日（転帰日）における転帰情報をclinicalStatus要素に記述すること。通常は、この日付がある場合のclinicalStatus要素は\"active\"以外の値となるが、例外的に\"active\"でもよい。",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.recordedDate",
+        "path": "Condition.recordedDate",
+        "short": "この情報を記録した登録日",
+        "definition": "この情報を記録した登録日",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.recorder",
+        "path": "Condition.recorder",
+        "short": "登録者の情報を記述しているJP_Practitionerリソースへの参照",
+        "definition": "登録者の情報を記述しているJP_Practitionerリソースへの参照",
+        "comment": "記述方法は、「診療情報・サマリー汎用リソース外部参照仕様」を参照のこと。",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Practitioner"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.asserter",
+        "path": "Condition.asserter",
+        "short": "この状態があると確認（主張）した人の情報を記述しているJP_Patient、JP_Practitioner、RelatedPersonのいずれかのリソースへの参照。",
+        "definition": "この状態があると確認（主張）した人の情報を記述しているJP_Patient、JP_Practitioner、RelatedPersonのいずれかのリソースへの参照。",
+        "comment": "本仕様ではこの情報を記録しないが、記録する場合には display子要素だけとし、別のリソースへの参照をしない。（新たなリソースによる追加記述を避けるため）",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Patient",
+              "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Practitioner",
+              "http://hl7.org/fhir/StructureDefinition/RelatedPerson"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.stage",
+        "path": "Condition.stage",
+        "short": "この状態の臨床的ステージやグレード表現。",
+        "definition": "この状態の臨床的ステージやグレード表現。"
+      },
+      {
+        "id": "Condition.stage.assessment",
+        "path": "Condition.stage.assessment",
+        "comment": "当面、診療６情報・サマリー用ではこの情報を記録しないが、記録する場合には display子要素だけとし、別のリソースへの参照をしない。（新たなcontainedリソースの記述を避けるため）"
+      },
+      {
+        "id": "Condition.evidence",
+        "path": "Condition.evidence",
+        "short": "状態を確認または反駁した証拠など、状態の検証ステータスの基礎となる裏付けとなる証拠/兆候。",
+        "definition": "状態を確認または反駁した証拠など、状態の検証ステータスの基礎となる裏付けとなる証拠/兆候。"
+      },
+      {
+        "id": "Condition.note",
+        "path": "Condition.note",
+        "short": "患者状態に関する追加的な情報",
+        "definition": "患者状態に関する追加的な情報"
+      },
+      {
+        "id": "Condition.note.author[x]",
+        "path": "Condition.note.author[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Condition.note.author[x]:authorString",
+        "path": "Condition.note.author[x]",
+        "sliceName": "authorString",
+        "short": "記載者氏名などの文字列。必ずしも氏名でなくてもよい。",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "Condition.note.time",
+        "path": "Condition.note.time",
+        "short": "この追加的な情報が作成された日時。"
+      },
+      {
+        "id": "Condition.note.text",
+        "path": "Condition.note.text",
+        "short": "追加的な情報の内容。markdown形式のテキストが使用できる。データとして1Mバイト以内であること。markdown形式のデータ。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "JP_valueSet_documentTypeCode",
+  "id": "jp-valueSet-documentTypeCode",
+  "title": "FHIR文書の文書区分（医療文書）",
+  "description": "FHIR文書の文書区分（医療文書全般）",
+  "url": "http://jpfhir.jp/fhir/Common/ValueSet/doc-typecodes",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://jpfhir.jp/fhir/Common/CodeSystem/doc-typecodes"
+      }
+    ]
+  }
+}

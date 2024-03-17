@@ -1,0 +1,126 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-MedicationRequest-CLINS-eCS",
+  "url": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_MedicationRequest_CLINS_eCS",
+  "name": "JP_MedicationRequest_CLINS_eCS",
+  "title": "CLINS電子カルテ情報共有サービス用:JP_MedicationRequest_CLINS_eCS",
+  "status": "active",
+  "date": "2024-02-25",
+  "description": "CLINS 電子カルテ共有サービス用 MedicationRequestリソース（処方オーダの１処方薬情報）プロファイル。JP_MedicationRequest_eCSからの派生プロファイル。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "script10.6",
+      "uri": "http://ncpdp.org/SCRIPT10_6",
+      "name": "Mapping to NCPDP SCRIPT 10.6"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationRequest",
+  "baseDefinition": "http://jpfhir.jp/fhir/eCS/StructureDefinition/JP_MedicationRequest_eCS",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationRequest",
+        "path": "MedicationRequest",
+        "comment": "このプロファイルは、電子カルテ情報共有サービスに送信される文書に処方情報を含める場合に使用されるプロファイルである。"
+      },
+      {
+        "id": "MedicationRequest.meta.profile",
+        "path": "MedicationRequest.meta.profile",
+        "short": "準拠しているプロファイルとして次のURLを指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_MedicationRequest_CLINS_eCS",
+        "definition": "準拠しているプロファイルとして次のURLを指定する。http://jpfhir.jp/fhir/clins/StructureDefinition/JP_MedicationRequest_CLINS_eCS",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "MedicationRequest.meta.tag",
+        "path": "MedicationRequest.meta.tag",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "MedicationRequest.meta.tag:lts",
+        "path": "MedicationRequest.meta.tag",
+        "sliceName": "lts",
+        "short": "電子カルテ情報共有サービスで長期保存フラグの設定する場合に使用する。",
+        "definition": "電子カルテ情報共有サービスで長期保存フラグの設定する場合に使用する。",
+        "min": 0,
+        "max": "1",
+        "patternCoding": {
+          "code": "LTS",
+          "system": "http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationRequest.meta.tag:lts.system",
+        "path": "MedicationRequest.meta.tag.system",
+        "short": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "definition": "固定値 http://jpfhir.jp/fhir/clins/CodeSystem/JP_ehrshrs_indication　を設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationRequest.meta.tag:lts.code",
+        "path": "MedicationRequest.meta.tag.code",
+        "short": "長期保存フラグ　固定値 LTSを設定する。",
+        "definition": "長期保存フラグ　固定値 LTSを設定する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationRequest.extension",
+        "path": "MedicationRequest.extension",
+        "min": 1
+      },
+      {
+        "id": "MedicationRequest.extension:eCS_InstitutionNumber",
+        "path": "MedicationRequest.extension",
+        "sliceName": "eCS_InstitutionNumber",
+        "short": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。電子カルテ情報サービスでは、この拡張による記述は必須。本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "definition": "本情報を作成発行した医療機関の識別番号を記述するために使用する拡張「eCS_InstitutionNumber」。電子カルテ情報サービスでは、この拡張による記述は必須。本情報は、ServiceRequestの要素として記述することも可能であるが、その場合もこの拡張で記述することとする。",
+        "min": 1
+      },
+      {
+        "id": "MedicationRequest.subject",
+        "path": "MedicationRequest.subject",
+        "comment": "電子カルテ共有サービスでは、別途BundleリソースでPatientリソースが送信されているので、その被保険者個人識別子を明示することにより患者を参照する。"
+      },
+      {
+        "id": "MedicationRequest.subject.identifier.system",
+        "path": "MedicationRequest.subject.identifier.system",
+        "fixedUri": "http://jpfhir.jp/fhir/clins/Idsystem/JP_Insurance_memberID"
+      }
+    ]
+  }
+}
